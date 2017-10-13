@@ -12,7 +12,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li {% if page.url == "/" %}class="active"{% endif %}><a href="{{ site.url }}">Home</a></li>
+            {% comment %} <li {% if page.url == "/" %}class="active"{% endif %}><a href="{{ site.url }}">Home</a></li> {% endcomment %}
             {% for my_page in site.pages %}
             {% if my_page.title %}
             <li class="inline-block{% if page.url == my_page.url %} active{% endif %}">

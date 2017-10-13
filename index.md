@@ -1,5 +1,7 @@
 ---
 layout: home
+title: Home
+main: true
 ---
 
 # scafi (**sca**la **fi**elds) #

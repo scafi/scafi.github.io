@@ -24,15 +24,15 @@ github_username:  metaphori
 
 # Build settings
 markdown: kramdown
-plugins:
-   - jekyll-bootstrap-sass
+
+#plugins:
+#   - jekyll-bootstrap-sass
 #  - jekyll-feed
 
 highlighter: rouge
 
 bootstrap:
   assets: true
-
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
