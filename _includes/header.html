@@ -16,7 +16,7 @@
             {% for my_page in site.pages %}
             {% if my_page.title %}
             <li class="inline-block{% if page.url == my_page.url %} active{% endif %}">
-                <a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
+                <a href="{% if my_page.static_url %} {{my_page.static_url}} {% else %} {{ my_page.url | prepend: site.baseurl }} {% endif %}">{{ my_page.title }}</a>
             </li>
             {% endif %}
             {% endfor %}
