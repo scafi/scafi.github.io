@@ -61,28 +61,6 @@ object SimulationRunner extends Launcher {
 }
 {% endhighlight %}
 
-### Release Highlights ###
-
-**0.3.2** (2018-10-19)
-
-* Aggregate processes with `spawn` constructs
-* Adjustments to operational semantics
-* Refactoring of modules (e.g., `stdlib` brought into `core`)
-* More features in the standard library
-* Bug fixes, tests, etc.
-
-**0.3.0** (2018-03-27)
-
-* `stdlib` module
-* `align` construct
-
-**0.2.0** (2017-06-28)
-
-* Several important adjustments to the core operational semantics (and more tests)
-* Refactoring of the field calculus interpreter
-* A basic graphical simulator has been added as a separate module `simulator-gui`
-* Cross compilation for Scala 2.11 and 2.12
-
 ### Main Researchers and Authors ###
 
 * Mirko Viroli
