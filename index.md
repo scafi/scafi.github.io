@@ -13,7 +13,7 @@ main: true
 
 ### Usage ###
 
-**NOTE:** the following examples and instructions may not be up-to-date; please refer to the `demos` module in the project repository for up-to-date information.
+<!-- **NOTE:** the following examples and instructions may not be up-to-date; please refer to the `demos` module in the project repository for up-to-date information. -->
 
 Steps
 
