@@ -10,6 +10,10 @@ main: true
 
 # Scafi Documentation
 
+## Introduction: Aggregate Programming
+
+TBD
+
 ## Hello, ScaFi
 
 Steps
@@ -82,6 +86,34 @@ TBD
 ## ScaFi Standard Library
 
 TBD
+
+### Basic API
+
+TBD
+
+#### Field-operation utilities
+
+#### Gradients
+
+#### Gradient-cast (G)
+
+#### Collect-cast (C)
+
+#### Time-decay (T)
+
+#### Leader election (S)
+
+### Process API
+
+TBD
+
+### Domain-specific APIs
+
+TBD
+
+#### Flocking
+
+#### Crowd management
 
 ## Simulating Aggregate Systems
 

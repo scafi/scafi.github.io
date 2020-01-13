@@ -22,7 +22,7 @@ body {
   width: auto;
 }
 
-.navbar-brand.title, .navbar-brand.title:hover  { 
+.navbar-brand.title, .navbar-brand.title:hover  {
   color:#fa0;
 }
 
@@ -34,4 +34,11 @@ body {
 
 #main-container {
 	margin-bottom:20px;
+}
+
+.toc-entry.toc-h4,
+.toc-entry.toc-h5,
+.toc-entry.toc-h6
+{
+  display: none;
 }
