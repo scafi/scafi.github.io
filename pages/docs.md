@@ -140,6 +140,15 @@ TBD
 
 #### Leader election (S)
 
+Block `S` (Sparse-choice) is used to perform decentralised leader election on a spatial basis.
+
+```scala
+val leader = S(grain = 10, metric = () => 1)
+```
+The previous snippet is used to elect leader with a mean distance of 10 hops between two leaders.
+The output is a boolean field that is true in correspondence of devices that are currently leader.
+
+
 ### Process API
 
 TBD
