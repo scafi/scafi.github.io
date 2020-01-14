@@ -121,7 +121,6 @@ object MyAggregateProgram extends AggregateProgram {
 2.3) Use the ScaFi internal simulator to run the program on a predefined network of devices.
 
 {% highlight scala %}
-
 import it.unibo.scafi.simulation.gui.{Launcher, Settings}
 
 object SimulationRunner extends Launcher {
@@ -145,6 +144,27 @@ for details about the use of ScaFi within Alchemist.
 TBD
 
 ## Aggregate Programming
+
+Here, we explain the basic constructs of the field calculus,
+which are the core of the aggregate programming paradigm.
+By combining these constructs, higher-level functions can be defined
+to capture increasingly complex collective behaviour.
+
+Consider the `Constructs` trait.
+
+{% highlight scala %}
+trait Constructs {
+  def rep[A](init: => A)(fun: A => A): A
+  def share[A](init: => A)(fun: (A, () => A) => A): A
+  def nbr[A](expr: => A): A
+  def foldhood[A](init: => A)(acc: (A, A) => A)(expr: => A): A
+  def branch[A](cond: => Boolean)(th: => A)(el: => A)
+
+  def mid: ID
+  def sense[A](sensorName: String): A
+  def nbrvar[A](name: NSNS): A
+}
+{% endhighlight %}
 
 TBD
 
