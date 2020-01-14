@@ -11,6 +11,11 @@ main: true
 
 **scafi** is a Scala-based library and framework for Aggregate Programming. It implements a variant of the Higher-Order Field Calculus (HOFC) operational semantics, which is made available as a usable domain-specific language (DSL), and provides a platform and API for simulating and executing Aggregate Computing systems and applications.
 
+### Skeleton repositories ###
+
+- https://github.com/scafi/hello-scafi : shows basic usage of ScaFi
+- https://github.com/scafi/learning-scafi-alchemist : shows how to use ScaFi within the Alchemist simulator in order to simulate aggregate systems
+
 ### Usage ###
 
 <!-- **NOTE:** the following examples and instructions may not be up-to-date; please refer to the `demos` module in the project repository for up-to-date information. -->

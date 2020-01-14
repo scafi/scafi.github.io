@@ -53,7 +53,9 @@ A code example of round execution in ScaFi is shown in <a href="#building-aggreg
 
 ## Hello, ScaFi
 
-Steps
+* Consider the following repository: https://github.com/scafi/hello-scafi
+
+As another example, consider the following steps.
 
 1) Add the dependency to scafi in your project (e.g., via sbt)
 
@@ -145,7 +147,7 @@ Block `S` (Sparse-choice) is used to perform decentralised leader election on a 
 ```scala
 val leader = S(grain = 10, metric = () => 1)
 ```
-The previous snippet is used to elect leader with a mean distance of 10 hops between two leaders.
+The previous snippet is used to elect leaders with a mean distance of 10 hops between two leaders.
 The output is a boolean field that is true in correspondence of devices that are currently leader.
 
 
@@ -171,7 +173,10 @@ TBD
 
 ### Alchemist simulator
 
+* Considering the following skeleton repository: https://github.com/scafi/learning-scafi-alchemist
+
 TBD
+
 
 ## Building Aggregate Systems
 
