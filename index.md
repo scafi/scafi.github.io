@@ -16,8 +16,8 @@ and provides a platform and API for simulating and executing Aggregate Computing
 
 ### Skeleton repositories ###
 
-- https://github.com/scafi/hello-scafi : shows basic usage of ScaFi
-- https://github.com/scafi/learning-scafi-alchemist : shows how to use ScaFi within the Alchemist simulator in order to simulate aggregate systems
+- [https://github.com/scafi/hello-scafi](https://github.com/scafi/hello-scafi) : shows basic usage of ScaFi
+- [https://github.com/scafi/learning-scafi-alchemist](https://github.com/scafi/learning-scafi-alchemist) : shows how to use ScaFi within the Alchemist simulator in order to simulate aggregate systems
 
 ### Usage ###
 

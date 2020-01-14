@@ -53,7 +53,7 @@ A code example of round execution in ScaFi is shown in <a href="#building-aggreg
 
 ## Hello, ScaFi
 
-* Consider the following repository: https://github.com/scafi/hello-scafi
+* Consider the following repository: [https://github.com/scafi/hello-scafi](https://github.com/scafi/hello-scafi)
 
 As another example, consider the following steps.
 
@@ -173,7 +173,7 @@ TBD
 
 ### Alchemist simulator
 
-* Considering the following skeleton repository: https://github.com/scafi/learning-scafi-alchemist
+* Considering the following skeleton repository: [https://github.com/scafi/learning-scafi-alchemist](https://github.com/scafi/learning-scafi-alchemist)
 
 TBD
 
