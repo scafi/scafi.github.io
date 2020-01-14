@@ -4,12 +4,15 @@ title: Home
 main: true
 ---
 
-# scafi (**sca**la **fi**elds) #
+# ScaFi Aggregate Programming Toolkit #
 
 
 ### Introduction ###
 
-**scafi** is a Scala-based library and framework for Aggregate Programming. It implements a variant of the Higher-Order Field Calculus (HOFC) operational semantics, which is made available as a usable domain-specific language (DSL), and provides a platform and API for simulating and executing Aggregate Computing systems and applications.
+**ScaFi** (**Sca**la **Fi**elds) is a Scala-based library and framework for Aggregate Programming.
+It implements a variant of the Higher-Order Field Calculus (HOFC) operational semantics,
+which is made available as a usable domain-specific language (DSL),
+and provides a platform and API for simulating and executing Aggregate Computing systems and applications.
 
 ### Skeleton repositories ###
 
