@@ -59,7 +59,7 @@ As another example, consider the following steps.
 
 1) Add the dependency to scafi in your project (e.g., via sbt)
 
-SBT
+1A) SBT
 
 {% highlight scala %}
 val scafi_core  = "it.unibo.apice.scafiteam" %% "scafi-core"  % "0.3.2"
@@ -68,7 +68,7 @@ val scafi_simulator_gui  = "it.unibo.apice.scafiteam" %% "scafi-simulator-gui"  
 libraryDependencies ++= Seq(scafi_core, scafi_simulator_gui)
 {% endhighlight %}
 
-GRADLE (`build.gradle.kts`)
+1B) GRADLE (`build.gradle.kts`)
 
 {% highlight kotlin %}
 plugins {
@@ -83,13 +83,25 @@ dependencies {
 }
 {% endhighlight %}
 
-* Use the API (e.g., to set up a simple simulation)
+2) Use the API (e.g., to set up a simple simulation)
+
+2.1) Import or define an incarnation (a family of types),
+from which you can import types like `AggregateProgram`
 
 {% highlight scala %}
 package experiments
 
+// Method #1: Use an incarnation which is already defined
 import it.unibo.scafi.incarnations.BasicSimulationIncarnation.AggregateProgram
 
+// Method #2: Define a custom incarnation and import stuff from it
+object MyIncarnation extends it.unibo.scafi.incarnations.BasicAbstractIncarnation
+import MyIncarnation._
+{% endhighlight %}
+
+2.2) Define an `AggregateProgram` which expresses the global behaviour of an ensemble.
+
+{% highlight scala %}
 object MyAggregateProgram extends AggregateProgram {
 
   override def main() = gradient(isSource)
@@ -104,6 +116,11 @@ object MyAggregateProgram extends AggregateProgram {
   def isSource = sense[Boolean]("source")
   def nbrRange = nbrvar[Double](NBR_RANGE_NAME)
 }
+{% endhighlight %}
+
+2.3) Use the ScaFi internal simulator to run the program on a predefined network of devices.
+
+{% highlight scala %}
 
 import it.unibo.scafi.simulation.gui.{Launcher, Settings}
 
@@ -113,6 +130,15 @@ object SimulationRunner extends Launcher {
   launch()
 }
 {% endhighlight %}
+
+Alternatively, you can use the approach taken in <a href="#building-aggregate-systems">Building Aggregate Systems</a>.
+Indeed, an `AggregateSystem` object can be seen as a function from `Context` to `Export`:
+you give a certain context, and get some export. The export must be passed to neighbours so that they can build their own context
+and re-interpret the aggregate program.
+
+2.4) After a simple infestigation, you may want to switch to a more sophisticated simulator, like Alchemist.
+Take a look at <a href="#Alchemist-simulator">Alchemist simulator</a>
+for details about the use of ScaFi within Alchemist.
 
 ## ScaFi Architecture
 
