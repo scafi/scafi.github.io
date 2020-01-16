@@ -13,7 +13,9 @@ publisher="Springer International Publishing",
 address="Cham",
 pages="200--217",
 abstract="Engineering distributed applications and services in emerging and open computing scenarios like the Internet of Things, cyber-physical systems and pervasive computing, calls for identifying proper abstractions to smoothly capture collective behaviour, adaptivity, and dynamic injection and execution of concurrent distributed activities. Accordingly, we introduce a notion of ``aggregate process'' as a concurrent field computation whose execution and interactions are sustained by a dynamic team of devices, and whose spatial region can opportunistically vary over time. We formalise this notion by extending the Field Calculus with a new primitive construct, spawn, used to instantiate a set of field computations and regulate key aspects of their life-cycle. By virtue of an open-source implementation in the ScaFi framework, we show basic programming examples and benefits via two case studies of mobile ad-hoc networks and drone swarm scenarios, evaluated by simulation.",
-isbn="978-3-030-22397-7"
+isbn="978-3-030-22397-7",
+note={This paper describes the ``aggregate process'' abstraction, which captures dynamic, concurrent, collective computations.
+This is supported through a ``spawn'' primitive. An implementation is provided in ScaFi.}
 }
 
 @InProceedings{casadei19scr,
@@ -30,7 +32,8 @@ publisher="Springer International Publishing",
 address="Cham",
 pages="182--199",
 abstract="Design patterns are key in software engineering, for they capture the knowledge of recurrent problems and associated solutions in specific design contexts. Emerging distributed computing scenarios, such as the Internet of Things, Cyber-Physical Systems, and Edge Computing, define a novel and still largely unexplored application context, where identifying recurrent patterns can be extremely valuable to mainstream development of language mechanisms, algorithms, architectures and supporting platforms---keeping a balanced trade-off between generality, applicability, and guidance. In this work, we present a design pattern, named Self-organising Coordination Regions  (SCR), which aims to support scalable monitoring and control in distributed systems. Specifically, it is a decentralised coordination pattern for partitioned orchestration of devices (typically on a spatial basis), which provides adaptivity, resilience, and distributed decision-making in large-scale situated systems. It works through a self-organising construction of regions of space, where internal coordination activities are regulated via feedback/control flows among leaders and worker nodes. We present the pattern, provide a template implementation in the Aggregate Computing framework, and evaluate it through simulation of a case study in Edge Computing.",
-isbn="978-3-030-22397-7"
+isbn="978-3-030-22397-7",
+note={This paper describes a design pattern for decentralised, adaptive coordination. Example code of the pattern is provided in ScaFi. }
 }
 
 @inproceedings{casadei2017foclasa,
@@ -39,7 +42,8 @@ isbn="978-3-030-22397-7"
   booktitle={International Conference on Software Engineering and Formal Methods},
   pages={507--522},
   year={2017},
-  organization={Springer}
+  organization={Springer},
+  note={This paper investigates how notions of trust can be used to protect aggregate algorithms; implementation and simulation in scafi (+ Alchemist).}
 }
 
 @article{casadei2018scp,
@@ -49,7 +53,8 @@ isbn="978-3-030-22397-7"
   volume={167},
   pages={114--137},
   year={2018},
-  publisher={Elsevier}
+  publisher={Elsevier},
+  note={This paper investigates how notions of trust can be used to protect aggregate algorithms; implementation and simulation in scafi (+ Alchemist).}
 }
 
 @inproceedings{viroli2018coord,
@@ -58,7 +63,8 @@ isbn="978-3-030-22397-7"
   booktitle={International Conference on Coordination Languages and Models},
   pages={252--279},
   year={2018},
-  organization={Springer}
+  organization={Springer},
+  note={This paper discusses the past, present, and future of Aggregate Computing.}
 }
 
 @incollection{casadei2018agere,
@@ -67,7 +73,8 @@ isbn="978-3-030-22397-7"
   booktitle={Programming with Actors},
   pages={94--122},
   year={2018},
-  publisher={Springer}
+  publisher={Springer},
+  note={This paper describes integration aspects between Aggregate Computing and the Actors model.}
 }
 
 @inproceedings{Casadei2016pmldc,
@@ -87,6 +94,7 @@ isbn="978-3-030-22397-7"
  publisher = {ACM},
  address = {New York, NY, USA},
  keywords = {DSL, Scala, aggregate programming, complex adaptive systems, distributed platform},
+ note={This is the first paper about scafi.}
 }
 
 @inproceedings{Viroli2016ubicomp,
@@ -105,6 +113,7 @@ isbn="978-3-030-22397-7"
  publisher = {ACM},
  address = {New York, NY, USA},
  keywords = {aggregate computing, cloud computing, execution platforms, internet of things, large-scale systems},
+ note={This paper explores execution and deployment strategies for aggregate programs and presents the prototype implementation in scafi.}
 }
 
 @inproceedings{Casadei2016mass,
@@ -113,5 +122,6 @@ isbn="978-3-030-22397-7"
   booktitle={Computer Science and Information Systems (FedCSIS), 2016 Federated Conference on},
   pages={1495--1504},
   year={2016},
-  organization={IEEE}
+  organization={IEEE},
+  note={This paper explores simulation support for scafi programs in Alchemist simulator.}
 }

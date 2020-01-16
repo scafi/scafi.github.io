@@ -43,19 +43,27 @@ custom_js:
 
 <div class="bibtex_template">
   <div class="if author">
+  <span class="author"><span class="first"></span> <span class="last"></span></span>
+  </div>
+  <div>
     <span class="if booktitle"><span class="booktitle"></span>.</span>
     <span class="if journal"><span class="journal"></span>.</span>
     <span class="if year">
       <span class="year"></span>.
     </span>
-    <span class="author"><span class="first"></span> <span class="last"></span></span>
     <span class="if url">
       <a class="url">(view online)</a>
     </span>
   </div>
-  <div>
+  <div class="paperTitle">
     <span class="title"></span>
   </div>
+  <span class="if note">
+  <div>
+  <span class="label">Short summary:</span>
+    <span class="note"></span>
+  </div>
+  </span>
 </div>
 
 <div id="bibtex_display"></div>

@@ -7,4 +7,11 @@ div.bibtexentry {
   margin-bottom:10px;
   .year, .author { font-weight: 100; }
   .title { font-weight: bold; padding:0; }
+  .description { padding-left: 20px;  }
+}
+
+.label {
+  color: #888;
+  font-size: 14px;
+  padding: 0px;
 }
