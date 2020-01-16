@@ -69,15 +69,23 @@ object SimulationRunner extends Launcher {
 }
 {% endhighlight %}
 
-### Main Researchers and Authors ###
+### Related tools
+
+- [Alchemist Simulator](http://alchemistsimulator.github.io/): a rich, flexible simulation framework that supports ScaFi
+- [Protelis](https://protelis.github.io/): an external Aggregate Programming DSL
+
+### People
+
+#### Main Researchers and Authors ###
 
 * Mirko Viroli
 * Roberto Casadei
 
-### Research Collaborators ###
+#### Research Collaborators ###
 
-* Ferruccio Damiani
+* Danilo Pianini
 * Giorgio Audrito
+* Ferruccio Damiani
 
 ### References ###
 
