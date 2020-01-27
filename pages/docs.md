@@ -81,6 +81,12 @@ dependencies {
     implementation("it.unibo.apice.scafiteam:scafi-core_2.12:0.3.2")
     implementation("it.unibo.apice.scafiteam:scafi-simulator-gui_2.12:0.3.2")
 }
+
+// the following may be needed when running using Java 11
+tasks.withType<ScalaCompile> {
+    sourceCompatibility = "1.8"
+    targetCompatibility = "1.8"
+}
 {% endhighlight %}
 
 2) Use the API (e.g., to set up a simple simulation)
@@ -221,7 +227,82 @@ TBD
 
 * Considering the following skeleton repository: [https://github.com/scafi/learning-scafi-alchemist](https://github.com/scafi/learning-scafi-alchemist)
 
-TBD
+The ScaFi specific part in an Alchemist simulation descriptor is as follows:
+
+```yaml
+incarnation: scafi
+
+pools:
+  - pool: &program
+      - time-distribution: 1
+        type: Event
+        actions:
+          - type: RunScafiProgram
+            parameters: [it.unibo.casestudy.MyProgram, 5.0]
+            # 1st argument is the fully-qualified classname of your program (class extending AggregateProgram)
+            # 2nd argument is retention time (i.e., amount of simulated time for which exports by neighbours are kept)
+      - program: send # this is needed for broadcasting export to neighbours after program execution
+```
+
+**NOTE:** the `send` program is needed, otherwise there would be no communication among devices,
+ preventing the unfolding of the aggregate logic.
+
+**NOTE:** the ScaFi incarnation does not attempt to create defaults for undeclared molecules.
+So, you need to declare all your molecules (including **exports**--otherwise, the exporter component will try to export a yet-to-be-created molecule) before accessing them (e.g., be sure to perform a `node.put()` before a corresponding `node.get()`), or the following error might occur **`The molecule does not exist and cannot create empty concentration`**.
+
+A full Alchemist simulation descriptor is as follows (node: refer to the [Alchemist Documentation](https://alchemistsimulator.github.io/) for more up-to-date information):
+
+```yaml
+variables:
+  random: &random
+    min: 0
+    max: 29
+    step: 1
+    default: 2
+
+export:
+  - time
+
+seeds:
+  scenario: *random
+  simulation: *random
+
+incarnation: scafi
+
+environment:
+  type: Continuous2DEnvironment
+  parameters: []
+
+network-model:
+  type: ConnectWithinDistance #*connectionType
+  parameters: [*range]
+
+pools:
+  - pool: &program
+      - time-distribution:
+          type: ExponentialTime
+          parameters: [1]
+        type: Event
+        actions:
+          - type: RunScafiProgram
+            parameters: [it.unibo.casestudy.MyProgram, 5.0]
+      - program: send
+  - pool: &move
+      - time-distribution: 1
+        type: Event
+        actions: []
+
+displacements:
+  - in:
+      type: Grid
+      parameters: [0, 0, 200, 80, 10, 10, 1, 1]
+    programs:
+      - *move
+      - *program
+    contents:
+      - molecule: test
+        concentration: true
+```
 
 
 ## Building Aggregate Systems

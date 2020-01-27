@@ -25,7 +25,7 @@ and provides a platform and API for simulating and executing Aggregate Computing
 
 Steps
 
-* Add the dependency to scafi in your project (e.g., via sbt)
+* Add the dependency to scafi in your project, e.g., via sbt
 
 {% highlight scala %}
 
@@ -35,6 +35,27 @@ val scafi_simulator_gui  = "it.unibo.apice.scafiteam" %% "scafi-simulator-gui"  
 val scafi_platform = "it.unibo.apice.scafiteam" %% "scafi-distributed"  % "0.3.2"
 
 libraryDependencies ++= Seq(scafi_core, scafi_simulator_gui, scafi_platform)
+{% endhighlight %}
+
+or via Gradle (`build.gradle.kts`)
+
+{% highlight kotlin %}
+plugins {
+    java
+    scala
+}
+
+dependencies {
+    implementation("org.scala-lang:scala-library:2.12.2")
+    implementation("it.unibo.apice.scafiteam:scafi-core_2.12:0.3.2")
+    implementation("it.unibo.apice.scafiteam:scafi-simulator-gui_2.12:0.3.2")
+}
+
+// the following may be needed when running using Java 11
+tasks.withType<ScalaCompile> {
+    sourceCompatibility = "1.8"
+    targetCompatibility = "1.8"
+}
 {% endhighlight %}
 
 * Use the API (e.g., to set up a simple simulation)
