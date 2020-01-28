@@ -152,7 +152,26 @@ for details about the use of ScaFi within Alchemist.
 
 ## ScaFi Architecture
 
-TBD
+From a deployment perspective, ScaFi consists of the following modules:
+
+* **`scafi-commons`**: provides basic entities (e.g., spatial and temporal abstractions)
+* **`scafi-core`**: represents the core of the project and provides an implementation of the ScaFi aggregate programming DSL,
+  together with its standard library
+* **`scafi-simulator`**: provides a basic support for simulating aggregate systems
+* **`scafi-simulator-gui`**: provides a GUI for visualising simulations of aggregate systems
+* **`spala`**: provides an actor-based aggregate computing middleware
+* **`scafi-distributed`**: ScaFi integration-layer for `spala`
+
+The modules to be imported (e.g., via sbt or Gradle) depend on the use case:
+
+* _Development of a real-world aggregate application_.
+  Bring `scafi-core` in for a fine-grained integration. For more straightforward distributed system setup, take a look at `scafi-distributed`.
+* _Play, exercise, and experiment with aggregate programming_.
+  Bring `scafi-core` in for writing aggregate programs as well as `scafi-simulator-gui` to quickly render an executing system.
+* _Set up sophisticated simulations_
+  Bring `scafi-core` in for writing aggregate programs
+  and either (A) leverage the basic machinery provided by `scafi-simulator`,
+  or (B) leverage the ScaFi support provided by Alchemist.
 
 ## Aggregate Programming
 
