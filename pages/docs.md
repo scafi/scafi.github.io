@@ -273,11 +273,106 @@ TBD
 
 ## Simulating Aggregate Systems
 
-TBD
+Simulation of aggregate systems
+ involves the following:
+
+1. _Defining the structure of an aggregate system_: in terms of devices (including their sensors and actuators),
+  connectivity between devices (neighbouring relationship),
+  and the environment in which devices are situated.
+2. _Defining the behaviour of an aggregate system_:
+  through an aggregate program expressed in the ScaFi DSL.
+3. _Defining the simulation setup_: including simulation parameters,
+  data to be exported,
+  environment dynamics,
+  and scheduling of computation rounds.
 
 ### ScaFi simulator
 
-TBD
+The ScaFi simulator consists of multiple modules:
+
+* **`scafi-simulator`**: provides a basic support for simulating aggregate systems
+* **`scafi-simulator-gui`**: provides a Swing GUI for visualising simulations of aggregate systems
+* **`scafi-simulator-gui-new`**: provides a JavaFX GUI for visualising simulations of aggregate systems
+* NOTE: there is also on-going work for adding support to 3D simulations, see [PR#38](https://github.com/scafi/scafi/pull/38)
+
+#### ScaFi simulator engine
+
+The ScaFi simulator engine is quite basic.
+
+The idea for its usage is to leverage a factory, object `simulatorFactory`,
+ to build a simulation `NETWORK` object,
+ upon which various
+ `exec` methods are available for scheduling computation rounds on the devices.
+On a network, there are also methods like `addSensor` and `chgSensorValue`
+ for programming the sensors of devices.
+
+ Consider the following example:
+
+```scala
+object DemoSequenceLauncher extends App {
+
+  val net = simulatorFactory.gridLike(GridSettings(6, 4, stepx = 1, stepy = 1), rng = 1.1)
+
+  net.addSensor(name = "sensor", value = 0)
+  net.chgSensorValue(name = "sensor", ids = Set(1), value = 1)
+  net.addSensor(name = "source", value = false)
+  net.chgSensorValue(name = "source", ids = Set(3), value = true)
+  net.addSensor(name = "sensor2", value = 0)
+  net.chgSensorValue(name = "sensor2", ids = Set(98), value = 1)
+  net.addSensor(name = "obstacle", value = false)
+  net.chgSensorValue(name = "obstacle", ids = Set(44,45,46,54,55,56,64,65,66), value = true)
+  net.addSensor(name = "label", value = "no")
+  net.chgSensorValue(name = "label", ids = Set(1), value = "go")
+
+  var v = java.lang.System.currentTimeMillis()
+
+  net.executeMany(
+    node = DemoSequence,//new HopGradient("source"),
+    size = 1000000,
+    action = (n,i) => {
+      if (i % 1000 == 0) {
+        println(net)
+        val newv = java.lang.System.currentTimeMillis()
+        println(newv-v)
+        println(net.context(4))
+        v=newv
+      }
+    })
+}
+```
+
+#### Graphical simulator
+
+For the usage of the graphical simulator, consider the following example:
+
+{% highlight scala %}
+package experiments
+
+import it.unibo.scafi.incarnations.BasicSimulationIncarnation.AggregateProgram
+
+object MyAggregateProgram extends AggregateProgram {
+
+  override def main() = gradient(isSource)
+
+  def gradient(source: Boolean): Double =
+    rep(Double.PositiveInfinity){ distance =>
+      mux(source) { 0.0 } {
+        foldhood(Double.PositiveInfinity)(Math.min)(nbr{distance}+nbrRange)
+      }
+    }
+
+  def isSource = sense[Boolean]("source")
+  def nbrRange = nbrvar[Double](NBR_RANGE_NAME)
+}
+
+import it.unibo.scafi.simulation.gui.{Launcher, Settings}
+
+object SimulationRunner extends Launcher {
+  Settings.Sim_ProgramClass = "experiments.MyAggregateProgram"
+  Settings.ShowConfigPanel = true
+  launch()
+}
+{% endhighlight %}
 
 ### Alchemist simulator
 
