@@ -3,7 +3,12 @@ layout: page
 title: Docs
 permalink: /docs/
 main: true
+custom_js:
+- https://cdn.rawgit.com/pcooksey/bibtex-js/5ccf967/src/bibtex_js.js
 ---
+
+<bibtex src="{{ '/assets/biblio.bib' | relative_url }}"></bibtex>
+
 
 * Do not remove this line (it will not be displayed)
 {:toc}
@@ -176,6 +181,10 @@ TBD
 
 ## ScaFi Standard Library
 
+Parts of the ScaFi library is described in the following papers:
+
+<div class="bibtex_display" bibtexkey="Casadei2016mass|casadei2018agere|casadei2018scp"></div>
+
 TBD
 
 ### Basic API
@@ -199,11 +208,16 @@ Block `S` (Sparse-choice) is used to perform decentralised leader election on a 
 ```scala
 val leader = S(grain = 10, metric = () => 1)
 ```
+
 The previous snippet is used to elect leaders with a mean distance of 10 hops between two leaders.
 The output is a boolean field that is true in correspondence of devices that are currently leader.
 
 
 ### Process API
+
+For an introduction to the **aggregate process** concept and its API, consider reading the following paper:
+
+<div class="bibtex_display" bibtexkey="casadei19processes"></div>
 
 TBD
 
@@ -225,7 +239,7 @@ TBD
 
 ### Alchemist simulator
 
-* Considering the following skeleton repository: [https://github.com/scafi/learning-scafi-alchemist](https://github.com/scafi/learning-scafi-alchemist)
+* Consider the following skeleton repository: [https://github.com/scafi/learning-scafi-alchemist](https://github.com/scafi/learning-scafi-alchemist)
 
 The ScaFi specific part in an Alchemist simulation descriptor is as follows:
 
