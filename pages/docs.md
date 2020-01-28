@@ -45,6 +45,8 @@ The edges connecting nodes represent logical communication channels
  to acquire and propagate context.
  This is what enables local activity to influence global activity and viceversa.
 
+### Execution model
+
 In practice, devices sustain the aggregate computation
  through _asynchronous rounds_ which conceptually consist of the following steps:
 
@@ -458,9 +460,9 @@ displacements:
 
 ## Building Aggregate Systems
 
-TBD
+The major challenge in building aggregate systems is dealing with distribution.
 
-Standalone setup
+Executing individual computational rounds is very easy, as demonstrated by the following snippet (**standalone setup**):
 
 {% highlight scala %}
 import it.unibo.scafi.incarnations.BasicAbstractIncarnation
@@ -484,3 +486,24 @@ object BasicUsage extends App {
   println(s"c1=$c1\ne1=$e1\n\nc2=$c2\ne2=$e2")
 }
 {% endhighlight %}
+
+The following activites must be implemented
+
+- execution of a reactive or temporally-delayed loop for executing computation rounds
+- discovery of neighbours, and corresponding send and reception of exports from neighbours
+- de/serialisation of exports (definition of the format, and transparent de/serialisation)
+- implementation of a logical neighbouring relationship
+- using a time window for retention of exports which also takes into account failure in export delivery
+- implementation of an interface to sensors and actuators
+
+Many of such activities are application- and deployment-specific, so it is not easy to come up with a general middleware solution.
+However, we are working on it.
+
+Take a look at the following paper for middleware- and deployment-level considerations:
+
+<div class="bibtex_display" bibtexkey="Viroli2016ubicomp"></div>
+
+# Something missing?
+
+- If what is missing is of general interest, please [open an Issue in the scafi.github.io repository](https://github.com/scafi/scafi.github.io/issues).
+- Otherwise, [contact us](mailto:robyDOTcasadeiATSYMBOLunibo.it)!
