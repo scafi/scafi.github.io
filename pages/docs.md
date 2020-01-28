@@ -181,7 +181,30 @@ TBD
 
 ## ScaFi Standard Library
 
-Parts of the ScaFi library is described in the following papers:
+The ScaFi standard library is currently organised into the following modules:
+
+* **`FieldUtils`**: define functionality to simplify aggregation of values from neighbours,
+  accessible through two objects `includingSelf` or `excludingSelf` with obvious semantics:
+  `sumHood(e)`, `unionHood(e)`, `unionHoodSet(e)`, `mergeHood(e)(overwritePolicy)`, `anyHood(e)`, `everyHood(e)`
+* **`Gradients`**: defines gradient functions, such as: `classicGradient(src,metric)`
+* **`BlockG`**: defines the gradient-cast (**`G`**) building block for propagating information, and related functionality such as: `distanceTo(src,metric)`, `broadcast(src,x,metric)`,
+  `channel(src,target,width)`,
+  * **`BlockC`**: defines the converge-cast (**`C`**) building block for collecting information along a spanning tree
+* **`BlockS`**: defines the sparce-choice (**`s`**) building block for leader election
+* **`BlocksWithGC`**: defines functionality that leverage `C` and `G`, such as: `summarize(sink,acc,local,Null)`, `average(sink,x)`
+* **`StateManagement`**: provides utility functions over `rep`, such as:
+  `roundCounter()`, `remember(x)`, `delay(x)`, `captureChange(x,initially)`, `countChanges(x,initially)`, `goesUp(x)`, `goesDown(x)`
+* **`TimeUtils`**: provides time-related functionality, such as: `T(init,floor,decay)` and variants, `timer(length)`, `limitedMemory(x,y,timeout)`,
+  `clock(len,dcay)`, `sharedTimeWithDecay(period,dt)`, `cyclicTimerWithDacay(len,decay)`
+* **`CustomSpawn`**: provides support for aggregate processes through `spawn` function
+
+To use a library component, just mix in your aggregate program class using keyword `with`:
+
+```scala
+class MyProgram extends AggregateProgram with BlockG with BlockS { /*...*/ }
+```
+
+Parts of the ScaFi library are described in the following papers:
 
 <div class="bibtex_display" bibtexkey="Casadei2016mass|casadei2018agere|casadei2018scp"></div>
 
