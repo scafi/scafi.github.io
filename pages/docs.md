@@ -187,10 +187,14 @@ Consider the `Constructs` trait.
 {% highlight scala %}
 trait Constructs {
   def rep[A](init: => A)(fun: A => A): A
-  def share[A](init: => A)(fun: (A, () => A) => A): A
   def nbr[A](expr: => A): A
   def foldhood[A](init: => A)(acc: (A, A) => A)(expr: => A): A
+  def aggregate[A](f: => A): A
+
+  // the following (aggregate IF construct) can be defined upon AGGREGATE()
   def branch[A](cond: => Boolean)(th: => A)(el: => A)
+  // the following is a variant of REP()
+  def share[A](init: => A)(fun: (A, () => A) => A): A
 
   def mid: ID
   def sense[A](sensorName: String): A
