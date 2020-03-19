@@ -18,16 +18,15 @@ email: your-email@example.com
 description: > # this means to ignore newlines until "baseurl:"
   scafi (Scala with computational Fields) is a framework for Aggregate Computing.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://scafi.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: robertocasadei90
 github_username:  metaphori
 
 # Build settings
 markdown: kramdown
 
-#plugins:
-#   - jekyll-bootstrap-sass
-#  - jekyll-feed
+plugins:
+  - jekyll-sitemap
 
 highlighter: rouge
 

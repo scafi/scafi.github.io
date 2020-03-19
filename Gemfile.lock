@@ -152,6 +152,7 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
+  jekyll-sitemap
   jekyll-swiss
   rouge
   tzinfo-data
