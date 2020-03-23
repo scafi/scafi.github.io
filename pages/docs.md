@@ -2,7 +2,7 @@
 layout: page
 title: Docs
 permalink: /docs/
-excerpt: Documentation for the ScaFi aggregate programming toolkit. It describes the ScaFi domain-specific language (DSL), which implements a variant of the field calculus, as well as its API, runtime and support for construction of aggregate systems.
+excerpt: Documentation for ScaFi, a Scala-based aggregate programming toolkit. It describes the ScaFi domain-specific language (DSL), which implements a variant of the field calculus, as well as its API, runtime and support for construction of aggregate systems.
 main: true
 custom_js:
 - https://cdn.rawgit.com/pcooksey/bibtex-js/5ccf967/src/bibtex_js.js
