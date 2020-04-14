@@ -46660,8 +46660,8 @@ const $s_Lit_unibo_scafi_incarnations_BasicAbstractIncarnation$class__$init$__Li
 });
 const $s_Lit_unibo_scafi_incarnations_Incarnation$StandardSensors$class__nbrRange__Lit_unibo_scafi_incarnations_Incarnation$StandardSensors__D = (function(this$) {
   const this$2 = $as_Lit_unibo_scafi_core_Language$Constructs(this$);
-  const this$1 = $m_Lit_unibo_scafi_incarnations_BasicSimulationIncarnation$();
-  const name = this$1.Lit_unibo_scafi_incarnations_BasicSimulationIncarnation$__f_NBR_RANGE;
+  const this$1 = this$.it$unibo$scafi$incarnations$Incarnation$StandardSensors$$$outer__Lit_unibo_scafi_incarnations_Incarnation();
+  const name = this$1.NBR_RANGE__T();
   return $uD(this$2.vm__Lit_unibo_scafi_core_Semantics$RoundVM().neighbourSense__O__O(name))
 });
 const $s_Lit_unibo_scafi_js_BasicWebIncarnation$class__$init$__Lit_unibo_scafi_js_BasicWebIncarnation__V = (function(this$) {
@@ -47078,6 +47078,21 @@ class $c_Lit_unibo_scafi_js_ScafiFacade$ extends $c_O {
   $js$exported$meth$path__sjs_js_Array__O(slots) {
     return this.path__sjs_js_Array__Lit_unibo_scafi_core_Semantics$Path(slots)
   };
+  $js$exported$meth$slotNbr__I__O(index) {
+    return new $c_Lit_unibo_scafi_core_Semantics$Nbr($m_Lit_unibo_scafi_js_WebIncarnation$(), index)
+  };
+  $js$exported$meth$slotRep__I__O(index) {
+    return new $c_Lit_unibo_scafi_core_Semantics$Rep($m_Lit_unibo_scafi_js_WebIncarnation$(), index)
+  };
+  $js$exported$meth$slotFold__I__O(index) {
+    return new $c_Lit_unibo_scafi_core_Semantics$FoldHood($m_Lit_unibo_scafi_js_WebIncarnation$(), index)
+  };
+  $js$exported$meth$slotAlign__I__O(index) {
+    return new $c_Lit_unibo_scafi_core_Semantics$Scope($m_Lit_unibo_scafi_js_WebIncarnation$(), index)
+  };
+  $js$exported$meth$slotFunCall__I__T__O(index, funId) {
+    return new $c_Lit_unibo_scafi_core_Semantics$FunCall($m_Lit_unibo_scafi_js_WebIncarnation$(), index, funId)
+  };
   $js$exported$meth$simulator__Lit_unibo_scafi_incarnations_Incarnation$AggregateProgram__O(program) {
     return this.simulator__Lit_unibo_scafi_incarnations_Incarnation$AggregateProgram__Lit_unibo_scafi_platform_SimulationPlatform$Network(program)
   };
@@ -47089,17 +47104,17 @@ class $c_Lit_unibo_scafi_js_ScafiFacade$ extends $c_O {
   };
   "round"(arg, arg$2, ...rest) {
     switch ($uI(rest.length)) {
-      case 1: {
+      case 0: {
         const prep0 = $as_Lit_unibo_scafi_incarnations_Incarnation$AggregateProgram(arg);
         const prep1 = $as_Lit_unibo_scafi_core_Core$Context(arg$2);
-        const prep2 = rest[0];
-        return this.$js$exported$meth$round__Lit_unibo_scafi_incarnations_Incarnation$AggregateProgram__Lit_unibo_scafi_core_Core$Context__sjs_js_Function0__O(prep0, prep1, prep2);
+        return this.$js$exported$meth$round__Lit_unibo_scafi_incarnations_Incarnation$AggregateProgram__Lit_unibo_scafi_core_Core$Context__O(prep0, prep1);
         break
       }
-      case 0: {
+      case 1: {
         const prep0$2 = $as_Lit_unibo_scafi_incarnations_Incarnation$AggregateProgram(arg);
         const prep1$2 = $as_Lit_unibo_scafi_core_Core$Context(arg$2);
-        return this.$js$exported$meth$round__Lit_unibo_scafi_incarnations_Incarnation$AggregateProgram__Lit_unibo_scafi_core_Core$Context__O(prep0$2, prep1$2);
+        const prep2 = rest[0];
+        return this.$js$exported$meth$round__Lit_unibo_scafi_incarnations_Incarnation$AggregateProgram__Lit_unibo_scafi_core_Core$Context__sjs_js_Function0__O(prep0$2, prep1$2, prep2);
         break
       }
       default: {
@@ -47110,6 +47125,27 @@ class $c_Lit_unibo_scafi_js_ScafiFacade$ extends $c_O {
   "simulator"(arg) {
     const prep0 = $as_Lit_unibo_scafi_incarnations_Incarnation$AggregateProgram(arg);
     return this.$js$exported$meth$simulator__Lit_unibo_scafi_incarnations_Incarnation$AggregateProgram__O(prep0)
+  };
+  "slotFunCall"(arg, arg$2) {
+    const prep0 = $uI(arg);
+    const prep1 = $as_T(arg$2);
+    return this.$js$exported$meth$slotFunCall__I__T__O(prep0, prep1)
+  };
+  "slotAlign"(arg) {
+    const prep0 = $uI(arg);
+    return this.$js$exported$meth$slotAlign__I__O(prep0)
+  };
+  "slotFold"(arg) {
+    const prep0 = $uI(arg);
+    return this.$js$exported$meth$slotFold__I__O(prep0)
+  };
+  "slotRep"(arg) {
+    const prep0 = $uI(arg);
+    return this.$js$exported$meth$slotRep__I__O(prep0)
+  };
+  "slotNbr"(arg) {
+    const prep0 = $uI(arg);
+    return this.$js$exported$meth$slotNbr__I__O(prep0)
   };
   "path"(arg) {
     const prep0 = arg;
@@ -67624,6 +67660,80 @@ const $d_Lit_unibo_scafi_js_Index$FooProgram$$anonfun$main$2$$anonfun$apply$mcDD
   Ljava_io_Serializable: 1
 });
 $c_Lit_unibo_scafi_js_Index$FooProgram$$anonfun$main$2$$anonfun$apply$mcDD$sp$1.prototype.$classData = $d_Lit_unibo_scafi_js_Index$FooProgram$$anonfun$main$2$$anonfun$apply$mcDD$sp$1;
+class $c_Lit_unibo_scafi_js_ScafiFacade$GradientProgram$$anonfun$main$2 extends $c_sr_AbstractFunction1$mcDD$sp {
+  constructor(outer) {
+    super();
+    this.Lit_unibo_scafi_js_ScafiFacade$GradientProgram$$anonfun$main$2__f_$outer = null;
+    if ((outer === null)) {
+      throw $m_sjsr_package$().unwrapJavaScriptException__jl_Throwable__O(null)
+    } else {
+      this.Lit_unibo_scafi_js_ScafiFacade$GradientProgram$$anonfun$main$2__f_$outer = outer
+    }
+  };
+  apply$mcDD$sp__D__D(x0$1) {
+    const this$3 = this.Lit_unibo_scafi_js_ScafiFacade$GradientProgram$$anonfun$main$2__f_$outer;
+    const this$1 = this.Lit_unibo_scafi_js_ScafiFacade$GradientProgram$$anonfun$main$2__f_$outer;
+    const cond = $uZ(this$1.Lit_unibo_scafi_js_ScafiFacade$GradientProgram__f_vm.localSense__O__O("source"));
+    const this$2 = this.Lit_unibo_scafi_js_ScafiFacade$GradientProgram$$anonfun$main$2__f_$outer;
+    const expr = new $c_Lit_unibo_scafi_js_ScafiFacade$GradientProgram$$anonfun$main$2$$anonfun$apply$mcDD$sp$1(this, x0$1);
+    const of = $m_Lit_unibo_scafi_js_WebIncarnation$().Builtins__Lit_unibo_scafi_core_RichLanguage$Builtins$().Bounded__Lit_unibo_scafi_core_RichLanguage$Builtins$Bounded$().Lit_unibo_scafi_core_RichLanguage$Builtins$Bounded$__f_of_d;
+    const el = $s_Lit_unibo_scafi_core_RichLanguage$Builtins$class__minHoodPlus__Lit_unibo_scafi_core_RichLanguage$Builtins__F0__Lit_unibo_scafi_core_RichLanguage$Builtins$Bounded__O(this$2, expr, of);
+    return $uD($s_Lit_unibo_scafi_core_RichLanguage$Builtins$class__mux__Lit_unibo_scafi_core_RichLanguage$Builtins__Z__O__O__O(this$3, cond, 0.0, el))
+  };
+  apply__O__O(v1) {
+    const x0$1 = $uD(v1);
+    return this.apply$mcDD$sp__D__D(x0$1)
+  };
+}
+const $d_Lit_unibo_scafi_js_ScafiFacade$GradientProgram$$anonfun$main$2 = new $TypeData().initClass({
+  Lit_unibo_scafi_js_ScafiFacade$GradientProgram$$anonfun$main$2: 0
+}, false, "it.unibo.scafi.js.ScafiFacade$GradientProgram$$anonfun$main$2", {
+  Lit_unibo_scafi_js_ScafiFacade$GradientProgram$$anonfun$main$2: 1,
+  sr_AbstractFunction1$mcDD$sp: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  F1$mcDD$sp: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lit_unibo_scafi_js_ScafiFacade$GradientProgram$$anonfun$main$2.prototype.$classData = $d_Lit_unibo_scafi_js_ScafiFacade$GradientProgram$$anonfun$main$2;
+class $c_Lit_unibo_scafi_js_ScafiFacade$GradientProgram$$anonfun$main$2$$anonfun$apply$mcDD$sp$1 extends $c_sr_AbstractFunction0$mcD$sp {
+  constructor(outer, x1$1) {
+    super();
+    this.Lit_unibo_scafi_js_ScafiFacade$GradientProgram$$anonfun$main$2$$anonfun$apply$mcDD$sp$1__f_$outer = null;
+    this.Lit_unibo_scafi_js_ScafiFacade$GradientProgram$$anonfun$main$2$$anonfun$apply$mcDD$sp$1__f_x1$1 = 0.0;
+    if ((outer === null)) {
+      throw $m_sjsr_package$().unwrapJavaScriptException__jl_Throwable__O(null)
+    } else {
+      this.Lit_unibo_scafi_js_ScafiFacade$GradientProgram$$anonfun$main$2$$anonfun$apply$mcDD$sp$1__f_$outer = outer
+    };
+    this.Lit_unibo_scafi_js_ScafiFacade$GradientProgram$$anonfun$main$2$$anonfun$apply$mcDD$sp$1__f_x1$1 = x1$1
+  };
+  apply$mcD$sp__D() {
+    const this$1 = this.Lit_unibo_scafi_js_ScafiFacade$GradientProgram$$anonfun$main$2$$anonfun$apply$mcDD$sp$1__f_$outer.Lit_unibo_scafi_js_ScafiFacade$GradientProgram$$anonfun$main$2__f_$outer;
+    const expr = new $c_sjsr_AnonFunction0(((arg$outer) => (() => arg$outer.Lit_unibo_scafi_js_ScafiFacade$GradientProgram$$anonfun$main$2$$anonfun$apply$mcDD$sp$1__f_x1$1))(this));
+    const $$x1 = $uD($s_Lit_unibo_scafi_core_Semantics$ConstructsSemantics$class__nbr__Lit_unibo_scafi_core_Semantics$ConstructsSemantics__F0__O(this$1, expr));
+    const this$2 = this.Lit_unibo_scafi_js_ScafiFacade$GradientProgram$$anonfun$main$2$$anonfun$apply$mcDD$sp$1__f_$outer.Lit_unibo_scafi_js_ScafiFacade$GradientProgram$$anonfun$main$2__f_$outer;
+    return ($$x1 + $s_Lit_unibo_scafi_incarnations_Incarnation$StandardSensors$class__nbrRange__Lit_unibo_scafi_incarnations_Incarnation$StandardSensors__D(this$2))
+  };
+  apply__O() {
+    return this.apply$mcD$sp__D()
+  };
+}
+const $d_Lit_unibo_scafi_js_ScafiFacade$GradientProgram$$anonfun$main$2$$anonfun$apply$mcDD$sp$1 = new $TypeData().initClass({
+  Lit_unibo_scafi_js_ScafiFacade$GradientProgram$$anonfun$main$2$$anonfun$apply$mcDD$sp$1: 0
+}, false, "it.unibo.scafi.js.ScafiFacade$GradientProgram$$anonfun$main$2$$anonfun$apply$mcDD$sp$1", {
+  Lit_unibo_scafi_js_ScafiFacade$GradientProgram$$anonfun$main$2$$anonfun$apply$mcDD$sp$1: 1,
+  sr_AbstractFunction0$mcD$sp: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  F0$mcD$sp: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lit_unibo_scafi_js_ScafiFacade$GradientProgram$$anonfun$main$2$$anonfun$apply$mcDD$sp$1.prototype.$classData = $d_Lit_unibo_scafi_js_ScafiFacade$GradientProgram$$anonfun$main$2$$anonfun$apply$mcDD$sp$1;
 function $is_Lit_unibo_scafi_simulation_SpatialSimulation(obj) {
   return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lit_unibo_scafi_simulation_SpatialSimulation)))
 }
@@ -70890,6 +71000,9 @@ class $c_Lit_unibo_scafi_js_Index$FooProgram extends $c_O {
       qual$1.Lit_unibo_scafi_core_Semantics$RoundVMImpl__f_status = qual$1.Lit_unibo_scafi_core_Semantics$RoundVMImpl__f_status.pop__Lit_unibo_scafi_core_Semantics$RoundVMImpl$Status().incIndex__Lit_unibo_scafi_core_Semantics$RoundVMImpl$Status()
     }
   };
+  it$unibo$scafi$incarnations$Incarnation$StandardSensors$$$outer__Lit_unibo_scafi_incarnations_Incarnation() {
+    return $m_Lit_unibo_scafi_incarnations_BasicSimulationIncarnation$()
+  };
   it$unibo$scafi$core$Semantics$ExecutionTemplate$$$outer__Lit_unibo_scafi_core_Semantics() {
     return $m_Lit_unibo_scafi_incarnations_BasicSimulationIncarnation$()
   };
@@ -70920,6 +71033,112 @@ const $d_Lit_unibo_scafi_js_Index$FooProgram = new $TypeData().initClass({
   Lit_unibo_scafi_incarnations_Incarnation$StandardSensors: 1
 });
 $c_Lit_unibo_scafi_js_Index$FooProgram.prototype.$classData = $d_Lit_unibo_scafi_js_Index$FooProgram;
+class $c_Lit_unibo_scafi_js_ScafiFacade$GradientProgram extends $c_O {
+  constructor() {
+    super();
+    this.Lit_unibo_scafi_js_ScafiFacade$GradientProgram__f_vm = null
+  };
+  vm__Lit_unibo_scafi_core_Semantics$RoundVM() {
+    return this.Lit_unibo_scafi_js_ScafiFacade$GradientProgram__f_vm
+  };
+  vm_$eq__Lit_unibo_scafi_core_Semantics$RoundVM__V(x$1) {
+    this.Lit_unibo_scafi_js_ScafiFacade$GradientProgram__f_vm = x$1
+  };
+  toString__T() {
+    return "<function1>"
+  };
+  main__O() {
+    const f = (() => Infinity);
+    const fun = new $c_Lit_unibo_scafi_js_ScafiFacade$GradientProgram$$anonfun$main$2(this);
+    const qual$1 = this.Lit_unibo_scafi_js_ScafiFacade$GradientProgram__f_vm;
+    const $$x1 = $m_Lit_unibo_scafi_js_WebIncarnation$();
+    const this$1 = this.Lit_unibo_scafi_js_ScafiFacade$GradientProgram__f_vm;
+    const x$10 = new $c_Lit_unibo_scafi_core_Semantics$Rep($$x1, this$1.Lit_unibo_scafi_core_Semantics$RoundVMImpl__f_status.Lit_unibo_scafi_core_Semantics$RoundVMImpl$StatusImpl__f_index);
+    const this$2 = this.Lit_unibo_scafi_js_ScafiFacade$GradientProgram__f_vm;
+    const x$11 = $s_Lit_unibo_scafi_core_Semantics$RoundVM$class__unlessFoldingOnOthers__Lit_unibo_scafi_core_Semantics$RoundVM__Z(this$2);
+    try {
+      qual$1.Lit_unibo_scafi_core_Semantics$RoundVMImpl__f_status = qual$1.Lit_unibo_scafi_core_Semantics$RoundVMImpl__f_status.push__Lit_unibo_scafi_core_Semantics$RoundVMImpl$Status().nest__Lit_unibo_scafi_core_Semantics$Slot__Lit_unibo_scafi_core_Semantics$RoundVMImpl$Status(x$10);
+      if (x$11) {
+        const this$3 = $as_Lit_unibo_scafi_core_Semantics$ExportOps($as_Lit_unibo_scafi_core_Core$Export(qual$1.Lit_unibo_scafi_core_Semantics$RoundVMImpl__f_exportStack.head__O())).get__Lit_unibo_scafi_core_Semantics$Path__s_Option(qual$1.Lit_unibo_scafi_core_Semantics$RoundVMImpl__f_status.Lit_unibo_scafi_core_Semantics$RoundVMImpl$StatusImpl__f_path);
+        if (this$3.isEmpty__Z()) {
+          const $$x4 = $as_Lit_unibo_scafi_core_Semantics$ExportOps($as_Lit_unibo_scafi_core_Core$Export(qual$1.Lit_unibo_scafi_core_Semantics$RoundVMImpl__f_exportStack.head__O()));
+          const $$x3 = qual$1.Lit_unibo_scafi_core_Semantics$RoundVMImpl__f_status.Lit_unibo_scafi_core_Semantics$RoundVMImpl$StatusImpl__f_path;
+          const this$4 = this.Lit_unibo_scafi_js_ScafiFacade$GradientProgram__f_vm;
+          const currentNeighbour = this$4.Lit_unibo_scafi_core_Semantics$RoundVMImpl__f_status.Lit_unibo_scafi_core_Semantics$RoundVMImpl$StatusImpl__f_neighbour;
+          let $$x2;
+          try {
+            const this$5 = this$4.Lit_unibo_scafi_core_Semantics$RoundVMImpl__f_status;
+            this$4.Lit_unibo_scafi_core_Semantics$RoundVMImpl__f_status = new $c_Lit_unibo_scafi_core_Semantics$RoundVMImpl$StatusImpl(this$5.Lit_unibo_scafi_core_Semantics$RoundVMImpl$StatusImpl__f_$outer, this$5.Lit_unibo_scafi_core_Semantics$RoundVMImpl$StatusImpl__f_path, this$5.Lit_unibo_scafi_core_Semantics$RoundVMImpl$StatusImpl__f_index, $m_s_None$(), this$5.Lit_unibo_scafi_core_Semantics$RoundVMImpl$StatusImpl__f_stack);
+            const this$6 = this.Lit_unibo_scafi_js_ScafiFacade$GradientProgram__f_vm.previousRoundVal__s_Option();
+            const v1 = (this$6.isEmpty__Z() ? f() : this$6.get__O());
+            const x0$1 = $uD(v1);
+            $$x2 = fun.apply$mcDD$sp__D__D(x0$1)
+          } finally {
+            const this$7 = this$4.Lit_unibo_scafi_core_Semantics$RoundVMImpl__f_status;
+            this$4.Lit_unibo_scafi_core_Semantics$RoundVMImpl__f_status = new $c_Lit_unibo_scafi_core_Semantics$RoundVMImpl$StatusImpl(this$7.Lit_unibo_scafi_core_Semantics$RoundVMImpl$StatusImpl__f_$outer, this$7.Lit_unibo_scafi_core_Semantics$RoundVMImpl$StatusImpl__f_path, this$7.Lit_unibo_scafi_core_Semantics$RoundVMImpl$StatusImpl__f_index, currentNeighbour, this$7.Lit_unibo_scafi_core_Semantics$RoundVMImpl$StatusImpl__f_stack)
+          };
+          return $$x4.put__Lit_unibo_scafi_core_Semantics$Path__O__O($$x3, $$x2)
+        } else {
+          return this$3.get__O()
+        }
+      } else {
+        const this$8 = this.Lit_unibo_scafi_js_ScafiFacade$GradientProgram__f_vm;
+        const currentNeighbour$1 = this$8.Lit_unibo_scafi_core_Semantics$RoundVMImpl__f_status.Lit_unibo_scafi_core_Semantics$RoundVMImpl$StatusImpl__f_neighbour;
+        try {
+          const this$9 = this$8.Lit_unibo_scafi_core_Semantics$RoundVMImpl__f_status;
+          this$8.Lit_unibo_scafi_core_Semantics$RoundVMImpl__f_status = new $c_Lit_unibo_scafi_core_Semantics$RoundVMImpl$StatusImpl(this$9.Lit_unibo_scafi_core_Semantics$RoundVMImpl$StatusImpl__f_$outer, this$9.Lit_unibo_scafi_core_Semantics$RoundVMImpl$StatusImpl__f_path, this$9.Lit_unibo_scafi_core_Semantics$RoundVMImpl$StatusImpl__f_index, $m_s_None$(), this$9.Lit_unibo_scafi_core_Semantics$RoundVMImpl$StatusImpl__f_stack);
+          const this$10 = this.Lit_unibo_scafi_js_ScafiFacade$GradientProgram__f_vm.previousRoundVal__s_Option();
+          const v1$1 = (this$10.isEmpty__Z() ? f() : this$10.get__O());
+          const x0$1$1 = $uD(v1$1);
+          return fun.apply$mcDD$sp__D__D(x0$1$1)
+        } finally {
+          const this$11 = this$8.Lit_unibo_scafi_core_Semantics$RoundVMImpl__f_status;
+          this$8.Lit_unibo_scafi_core_Semantics$RoundVMImpl__f_status = new $c_Lit_unibo_scafi_core_Semantics$RoundVMImpl$StatusImpl(this$11.Lit_unibo_scafi_core_Semantics$RoundVMImpl$StatusImpl__f_$outer, this$11.Lit_unibo_scafi_core_Semantics$RoundVMImpl$StatusImpl__f_path, this$11.Lit_unibo_scafi_core_Semantics$RoundVMImpl$StatusImpl__f_index, currentNeighbour$1, this$11.Lit_unibo_scafi_core_Semantics$RoundVMImpl$StatusImpl__f_stack)
+        }
+      }
+    } finally {
+      qual$1.Lit_unibo_scafi_core_Semantics$RoundVMImpl__f_status = qual$1.Lit_unibo_scafi_core_Semantics$RoundVMImpl__f_status.pop__Lit_unibo_scafi_core_Semantics$RoundVMImpl$Status().incIndex__Lit_unibo_scafi_core_Semantics$RoundVMImpl$Status()
+    }
+  };
+  $js$exported$meth$main__O() {
+    return this.main__O()
+  };
+  it$unibo$scafi$incarnations$Incarnation$StandardSensors$$$outer__Lit_unibo_scafi_incarnations_Incarnation() {
+    return $m_Lit_unibo_scafi_js_WebIncarnation$()
+  };
+  it$unibo$scafi$core$Semantics$ExecutionTemplate$$$outer__Lit_unibo_scafi_core_Semantics() {
+    return $m_Lit_unibo_scafi_js_WebIncarnation$()
+  };
+  it$unibo$scafi$core$Semantics$ConstructsSemantics$$$outer__Lit_unibo_scafi_core_Semantics() {
+    return $m_Lit_unibo_scafi_js_WebIncarnation$()
+  };
+  apply__O__O(v1) {
+    const c = $as_Lit_unibo_scafi_core_Core$Context(v1);
+    return $s_Lit_unibo_scafi_core_Semantics$ExecutionTemplate$class__apply__Lit_unibo_scafi_core_Semantics$ExecutionTemplate__Lit_unibo_scafi_core_Core$Context__Lit_unibo_scafi_core_Core$Export(this, c)
+  };
+  "main"() {
+    return this.$js$exported$meth$main__O()
+  };
+}
+const $d_Lit_unibo_scafi_js_ScafiFacade$GradientProgram = new $TypeData().initClass({
+  Lit_unibo_scafi_js_ScafiFacade$GradientProgram: 0
+}, false, "it.unibo.scafi.js.ScafiFacade$GradientProgram", {
+  Lit_unibo_scafi_js_ScafiFacade$GradientProgram: 1,
+  O: 1,
+  Lit_unibo_scafi_incarnations_Incarnation$AggregateProgram: 1,
+  Lit_unibo_scafi_incarnations_Incarnation$AggregateInterpreter: 1,
+  Lit_unibo_scafi_core_Semantics$ExecutionTemplate: 1,
+  F1: 1,
+  Lit_unibo_scafi_core_Semantics$ConstructsSemantics: 1,
+  Lit_unibo_scafi_core_Language$Constructs: 1,
+  Lit_unibo_scafi_core_Semantics$ProgramSchema: 1,
+  Lit_unibo_scafi_incarnations_Incarnation$FieldCalculusSyntax: 1,
+  Lit_unibo_scafi_core_RichLanguage$Builtins: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  Lit_unibo_scafi_incarnations_Incarnation$StandardSensors: 1
+});
+$c_Lit_unibo_scafi_js_ScafiFacade$GradientProgram.prototype.$classData = $d_Lit_unibo_scafi_js_ScafiFacade$GradientProgram;
 function $is_sc_GenSet(obj) {
   return (!(!((obj && obj.$classData) && obj.$classData.ancestors.sc_GenSet)))
 }
@@ -71313,6 +71532,12 @@ const $p_Lit_unibo_scafi_js_WebIncarnation$__EuclideanStrategy$lzycompute__Lit_u
   };
   return $thiz.Lit_unibo_scafi_js_WebIncarnation$__f_EuclideanStrategy$module
 });
+const $p_Lit_unibo_scafi_js_WebIncarnation$__Builtins$lzycompute__Lit_unibo_scafi_core_RichLanguage$Builtins$ = (function($thiz) {
+  if (($thiz.Lit_unibo_scafi_js_WebIncarnation$__f_Builtins$module === null)) {
+    $thiz.Lit_unibo_scafi_js_WebIncarnation$__f_Builtins$module = new $c_Lit_unibo_scafi_core_RichLanguage$Builtins$($thiz)
+  };
+  return $thiz.Lit_unibo_scafi_js_WebIncarnation$__f_Builtins$module
+});
 const $p_Lit_unibo_scafi_js_WebIncarnation$__ExportImpl$lzycompute__Lit_unibo_scafi_core_Engine$ExportImpl$ = (function($thiz) {
   if (($thiz.Lit_unibo_scafi_js_WebIncarnation$__f_ExportImpl$module === null)) {
     $thiz.Lit_unibo_scafi_js_WebIncarnation$__f_ExportImpl$module = new $c_Lit_unibo_scafi_core_Engine$ExportImpl$($thiz)
@@ -71381,6 +71606,9 @@ class $c_Lit_unibo_scafi_js_WebIncarnation$ extends $c_O {
   LSNS_RANDOM__T() {
     return this.Lit_unibo_scafi_js_WebIncarnation$__f_LSNS_RANDOM
   };
+  NBR_RANGE__T() {
+    return this.Lit_unibo_scafi_js_WebIncarnation$__f_NBR_RANGE
+  };
   NBR_DELAY__T() {
     return this.Lit_unibo_scafi_js_WebIncarnation$__f_NBR_DELAY
   };
@@ -71404,6 +71632,9 @@ class $c_Lit_unibo_scafi_js_WebIncarnation$ extends $c_O {
   };
   it$unibo$scafi$space$BasicSpatialAbstraction$_setter_$positionOrdering_$eq__s_math_Ordering__V(x$1) {
     this.Lit_unibo_scafi_js_WebIncarnation$__f_positionOrdering = x$1
+  };
+  Builtins__Lit_unibo_scafi_core_RichLanguage$Builtins$() {
+    return ((this.Lit_unibo_scafi_js_WebIncarnation$__f_Builtins$module === null) ? $p_Lit_unibo_scafi_js_WebIncarnation$__Builtins$lzycompute__Lit_unibo_scafi_core_RichLanguage$Builtins$(this) : this.Lit_unibo_scafi_js_WebIncarnation$__f_Builtins$module)
   };
   factory__Lit_unibo_scafi_core_Engine$EngineFactory() {
     return this.Lit_unibo_scafi_js_WebIncarnation$__f_factory
@@ -74097,6 +74328,9 @@ class $c_Lit_unibo_scafi_incarnations_BasicSimulationIncarnation$ extends $c_O {
   };
   LSNS_DELTA_TIME__T() {
     return this.Lit_unibo_scafi_incarnations_BasicSimulationIncarnation$__f_LSNS_DELTA_TIME
+  };
+  NBR_RANGE__T() {
+    return this.Lit_unibo_scafi_incarnations_BasicSimulationIncarnation$__f_NBR_RANGE
   };
   NBR_DELAY__T() {
     return this.Lit_unibo_scafi_incarnations_BasicSimulationIncarnation$__f_NBR_DELAY
@@ -79810,6 +80044,9 @@ exports.ScafiDsl = (function(...rest) {
   return new $c_Lit_unibo_scafi_js_ScafiDsl(prep0)
 });
 exports.DrawOptions = $a_Lit_unibo_scafi_js_jsnetworkx_DrawOptions();
+exports.GradientProgram = (function() {
+  return new $c_Lit_unibo_scafi_js_ScafiFacade$GradientProgram()
+});
 $s_Lit_unibo_scafi_js_Index__main__AT__V($makeNativeArrayWrapper($d_T.getArrayOf(), []));
 //# sourceMappingURL=scafi-web-fastopt.js.map
 
