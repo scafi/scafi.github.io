@@ -384,6 +384,7 @@ object SimulationRunner extends Launcher {
 ### Alchemist simulator
 
 * Consider the following skeleton repository: [https://github.com/scafi/learning-scafi-alchemist](https://github.com/scafi/learning-scafi-alchemist)
+* Take a look at [this tutorial for ScaFi-Alchemist by G. Audrito](https://bitbucket.org/gaudrito/alchemist-example)
 
 The ScaFi specific part in an Alchemist simulation descriptor is as follows:
 
