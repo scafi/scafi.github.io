@@ -65,18 +65,18 @@ A code example of round execution in ScaFi is shown in <a href="#building-aggreg
 
 As another example, consider the following steps.
 
-1) Add the dependency to scafi in your project (e.g., via sbt)
+**Step 1:** Add the dependency to scafi in your project (e.g., via sbt)
 
-1A) SBT
+**Step 1-A:** SBT
 
 {% highlight scala %}
-val scafi_core  = "it.unibo.apice.scafiteam" %% "scafi-core"  % "0.3.2"
-val scafi_simulator_gui  = "it.unibo.apice.scafiteam" %% "scafi-simulator-gui"  % "0.3.2"
+val scafi_core  = "it.unibo.apice.scafiteam" %% "scafi-core"  % "0.3.3"
+val scafi_simulator_gui  = "it.unibo.apice.scafiteam" %% "scafi-simulator-gui"  % "0.3.3"
 
 libraryDependencies ++= Seq(scafi_core, scafi_simulator_gui)
 {% endhighlight %}
 
-1B) GRADLE (`build.gradle.kts`)
+**Step 1-B:** GRADLE (`build.gradle.kts`)
 
 {% highlight kotlin %}
 plugins {
@@ -86,8 +86,9 @@ plugins {
 
 dependencies {
     implementation("org.scala-lang:scala-library:2.12.2")
-    implementation("it.unibo.apice.scafiteam:scafi-core_2.12:0.3.2")
-    implementation("it.unibo.apice.scafiteam:scafi-simulator-gui_2.12:0.3.2")
+    implementation("it.unibo.scafi:scafi-core_2.12:0.3.3")
+    implementation("it.unibo.scafi:scafi-simulator-gui_2.12:0.3.3")
+    // Note: before ScaFi 0.3.3, the group ID was 'it.unibo.apice.scafiteam'
 }
 
 // the following may be needed when running using Java 11
@@ -97,9 +98,9 @@ tasks.withType<ScalaCompile> {
 }
 {% endhighlight %}
 
-2) Use the API (e.g., to set up a simple simulation)
+**Step 2:** Use the API (e.g., to set up a simple simulation)
 
-2.1) Import or define an incarnation (a family of types),
+**Step 2-1:** Import or define an incarnation (a family of types),
 from which you can import types like `AggregateProgram`
 
 {% highlight scala %}
@@ -113,26 +114,43 @@ object MyIncarnation extends it.unibo.scafi.incarnations.BasicAbstractIncarnatio
 import MyIncarnation._
 {% endhighlight %}
 
-2.2) Define an `AggregateProgram` which expresses the global behaviour of an ensemble.
+**Step 2-2:** Define an `AggregateProgram` which expresses the global behaviour of an ensemble.
 
 {% highlight scala %}
+// An "aggregate program" can be seen as a function from a Context to an Export
+// The Context is the input for a local computation: includes state
+//  from previous computations, sensor data, and exports from neighbours.
+// The export is a tree-like data structure that contains all the information needed
+//  for coordinating with neighbours. It also contains the output of the computation.
 object MyAggregateProgram extends AggregateProgram {
-
+  // Main program expression driving the ensemble
+  // This is run in a loop for each agent
+  // According to this expression, coordination messages are automatically generated
+  // The platform/middleware/simulator is responsible for coordination
   override def main() = gradient(isSource)
 
+  // The gradient is the (self-adaptive) field of the minimum distances from source nodes
+  // `rep` is the construct for state transformation (remember the round-by-round loop behaviour)
+  // `mux` is a purely functional multiplexer (selects the first or second branch according to condition)
+  // `foldhoodPlus` folds over the neighbourhood (think like Scala's fold)
+  // (`Plus` means "without self"--with plain `foldhood`, the device itself is folded)
+  // `nbr(e)` denotes the values to be locally computed and shared with neighbours
+  // `nbrRange` is a sensor that, when folding, returns the distance wrt each neighbour
   def gradient(source: Boolean): Double =
     rep(Double.PositiveInfinity){ distance =>
       mux(source) { 0.0 } {
-        foldhood(Double.PositiveInfinity)(Math.min)(nbr{distance}+nbrRange)
+        foldhoodPlus(Double.PositiveInfinity)(Math.min)(nbr{distance}+nbrRange)
       }
     }
 
+  // A custom local sensor
   def isSource = sense[Boolean]("source")
+  // A custom "neighbouring sensor"
   def nbrRange = nbrvar[Double](NBR_RANGE_NAME)
 }
 {% endhighlight %}
 
-2.3) Use the ScaFi internal simulator to run the program on a predefined network of devices.
+**Step 2-3:** Use the ScaFi internal simulator to run the program on a predefined network of devices.
 
 {% highlight scala %}
 import it.unibo.scafi.simulation.gui.{Launcher, Settings}
@@ -149,7 +167,7 @@ Indeed, an `AggregateSystem` object can be seen as a function from `Context` to 
 you give a certain context, and get some export. The export must be passed to neighbours so that they can build their own context
 and re-interpret the aggregate program.
 
-2.4) After a simple infestigation, you may want to switch to a more sophisticated simulator, like Alchemist.
+**Step 2-4:** After a simple infestigation, you may want to switch to a more sophisticated simulator, like Alchemist.
 Take a look at <a href="#Alchemist-simulator">Alchemist simulator</a>
 for details about the use of ScaFi within Alchemist.
 

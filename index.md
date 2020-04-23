@@ -28,16 +28,21 @@ and provides a platform and API for simulating and executing Aggregate Computing
 
 <!-- **NOTE:** the following examples and instructions may not be up-to-date; please refer to the `demos` module in the project repository for up-to-date information. -->
 
-Steps
+Notes
 
-* Add the dependency to scafi in your project, e.g., via sbt
+- ScaFi >= 0.3.3 cross-compiles for Scala 2.11, 2.12, 2.13.
+- Before ScaFi 0.3.3, the group ID `it.unibo.apice.scafiteam` was used instead of the current **`it.unibo.scafi`**
+
+#### Steps
+
+* Add the dependency to scafi in your project, e.g., via sbt.
 
 {% highlight scala %}
 
-val scafi_core  = "it.unibo.apice.scafiteam" %% "scafi-core"  % "0.3.2"
-val scafi_simulator  = "it.unibo.apice.scafiteam" %% "scafi-simulator"  % "0.3.2"
-val scafi_simulator_gui  = "it.unibo.apice.scafiteam" %% "scafi-simulator-gui"  % "0.3.2"
-val scafi_platform = "it.unibo.apice.scafiteam" %% "scafi-distributed"  % "0.3.2"
+val scafi_core  = "it.unibo.scafi" %% "scafi-core"  % "0.3.3"
+val scafi_simulator  = "it.unibo.scafi" %% "scafi-simulator"  % "0.3.3"
+val scafi_simulator_gui  = "it.unibo.scafi" %% "scafi-simulator-gui"  % "0.3.3"
+val scafi_platform = "it.unibo.scafi" %% "scafi-distributed"  % "0.3.3"
 
 libraryDependencies ++= Seq(scafi_core, scafi_simulator_gui, scafi_platform)
 {% endhighlight %}
@@ -94,6 +99,9 @@ object SimulationRunner extends Launcher {
   launch()
 }
 {% endhighlight %}
+
+More information is available in the [ScaFi Documentation](/docs/).
+
 
 ### Related tools
 
