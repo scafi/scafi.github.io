@@ -1,3 +1,85 @@
+@article{casadei2021eaai,
+title = "Engineering collective intelligence at the edge with aggregate processes",
+journal = "Engineering Applications of Artificial Intelligence",
+volume = "97",
+pages = "104081",
+year = "2021",
+issn = "0952-1976",
+doi = "https://doi.org/10.1016/j.engappai.2020.104081",
+_url = "http://www.sciencedirect.com/science/article/pii/S0952197620303389",
+author = "Roberto Casadei and Mirko Viroli and Giorgio Audrito and Danilo Pianini and Ferruccio Damiani",
+keywords = "Computational collective intelligence, Self-organisation, Distributed computing, Aggregate programming, Computational fields, Multi-agent systems",
+abstract = "Edge computing promotes the execution of complex computational processes without the cloud, i.e., on top of the heterogeneous, articulated, and possibly mobile systems composed of IoT and edge devices. Such a pervasive smart fabric augments our environment with computing and networking capabilities. This leads to a complex and dynamic ecosystem of devices that should not only exhibit individual intelligence but also collective intelligence—the ability to take group decisions or process knowledge among autonomous units of a distributed environment. Self-adaptation and self-organisation mechanisms are also typically required to ensure continuous and inherent toleration of changes of various kinds, to distribution of devices, energy available, computational load, as well as faults. To achieve this behaviour in a massively distributed setting like edge computing demands, we seek for identifying proper abstractions, and engineering tools therefore, to smoothly capture collective behaviour, adaptivity, and dynamic injection and execution of concurrent distributed activities. Accordingly, we elaborate on a notion of “aggregate process” as a concurrent collective computation whose execution and interactions are sustained by a dynamic team of devices, whose spatial region can opportunistically vary over time. We ground this notion by extending the aggregate computing model and toolchain with new constructs to instantiate aggregate processes and regulate key aspects of their lifecycle. By virtue of an open-source implementation in the ScaFi framework, we show basic programming examples as well as case studies of edge computing, evaluated by simulation in realistic settings.",
+note={This article describes in detail the ``aggregate process'' abstraction, which captures dynamic, concurrent, collective computations.
+This is supported through a ``spawn'' primitive. An implementation is provided in ScaFi.}
+}
+
+@inproceedings{DBLP:conf/coordination/AguzziCMPV21,
+  author    = {Gianluca Aguzzi and
+               Roberto Casadei and
+               Niccol{\`{o}} Maltoni and
+               Danilo Pianini and
+               Mirko Viroli},
+  _editor    = {Ferruccio Damiani and
+               Ornela Dardha},
+  title     = {ScaFi-Web: {A} Web-Based Application for Field-Based Coordination
+               Programming},
+  booktitle = {Coordination Models and Languages - 23rd {IFIP} {WG} 6.1 International
+               Conference, {COORDINATION} 2021, Proceedings},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {12717},
+  pages     = {285--299},
+  publisher = {Springer},
+  year      = {2021},
+  _url       = {https://doi.org/10.1007/978-3-030-78142-2_18},
+  doi       = {10.1007/978-3-030-78142-2_18},
+  timestamp = {Tue, 15 Jun 2021 17:23:40 +0200},
+  biburl    = {https://dblp.org/rec/conf/coordination/AguzziCMPV21.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org},
+  note = {This tool paper introduces the ScaFi-Web playground.}
+}
+
+@inproceedings{DBLP:conf/coordination/CasadeiVRA21,
+  author    = {Roberto Casadei and
+               Mirko Viroli and
+               Alessandro Ricci and
+               Giorgio Audrito},
+  editor    = {Ferruccio Damiani and
+               Ornela Dardha},
+  title     = {Tuple-Based Coordination in Large-Scale Situated Systems},
+  booktitle = {Coordination Models and Languages - 23rd {IFIP} {WG} 6.1 International
+               Conference, {COORDINATION} 2021, Proceedings},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {12717},
+  pages     = {149--167},
+  publisher = {Springer},
+  year      = {2021},
+  _url       = {https://doi.org/10.1007/978-3-030-78142-2_10},
+  doi       = {10.1007/978-3-030-78142-2_10},
+  timestamp = {Tue, 15 Jun 2021 17:23:40 +0200},
+  biburl    = {https://dblp.org/rec/conf/coordination/CasadeiVRA21.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org},
+  note = {This paper discusses a model of spatiotemporally situated tuples which can be implemented on top of aggregate processes.}
+}
+
+@InProceedings{casadei2020fscafi-isola,
+author="Casadei, Roberto
+and Viroli, Mirko
+and Audrito, Giorgio
+and Damiani, Ferruccio",
+_editor="Margaria, Tiziana
+and Steffen, Bernhard",
+title="FScaFi : A Core Calculus for Collective Adaptive Systems Programming",
+booktitle="Leveraging Applications of Formal Methods, Verification and Validation: Engineering Principles",
+year="2020",
+publisher="Springer",
+_address="Cham",
+pages="344--360",
+abstract="A recently proposed approach to the rigorous engineering of collective adaptive systems is the aggregate computing paradigm, which operationalises the idea of expressing collective adaptive behaviour by a global perspective as a functional composition of dynamic computational fields (i.e., structures mapping a collection of individual devices of a collective to computational values over time). In this paper, we present FScaFi, a core language that captures the essence of exploiting field computations in mainstream functional languages, and which is based on a semantic model for field computations leveraging the novel notion of ``computation against a neighbour''. Such a construct models expressions whose evaluation depends on the same evaluation that occurred on a neighbour, thus abstracting communication actions and, crucially, enabling deep and straightforward integration in the Scala programming language, by the ScaFi incarnation. We cover syntax and informal semantics of FScaFi, provide examples of collective adaptive behaviour development in ScaFi, and delineate future work.",
+isbn="978-3-030-61470-6",
+note={This paper describes the field calculus variant implemented in ScaFi.}
+}
+
 @InProceedings{casadei19processes,
 author="Casadei, Roberto
 and Viroli, Mirko
