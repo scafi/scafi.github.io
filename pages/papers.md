@@ -34,7 +34,7 @@ custom_js:
       </div>
     </div>
     <div class="section @misc|@phdthesis|@mastersthesis|@bachelorsthesis|@techreport">
-      <h3>Other Publications</h3>
+      <h3>Other Publications (theses, tech reports...)</h3>
       <div class="sort year" extra="DESC number">
         <div class="templates"></div>
       </div>
