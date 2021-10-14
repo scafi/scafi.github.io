@@ -14,7 +14,7 @@ custom_js:
 * Do not remove this line (it will not be displayed)
 {:toc}
 
-# Scafi Documentation
+# Background
 
 ## Introduction: Aggregate Programming
 
@@ -59,6 +59,8 @@ In practice, devices sustain the aggregate computation
 
 A code example of round execution in ScaFi is shown in <a href="#building-aggregate-systems">Building Aggregate Systems</a>.
 
+# ScaFi User Manual
+
 ## Hello, ScaFi
 
 * Consider the following repository: [https://github.com/scafi/hello-scafi](https://github.com/scafi/hello-scafi)
@@ -70,8 +72,8 @@ As another example, consider the following steps.
 **Step 1-A:** SBT
 
 {% highlight scala %}
-val scafi_core  = "it.unibo.apice.scafiteam" %% "scafi-core"  % "0.3.3"
-val scafi_simulator_gui  = "it.unibo.apice.scafiteam" %% "scafi-simulator-gui"  % "0.3.3"
+val scafi_core  = "it.unibo.scafi" %% "scafi-core"  % "0.3.3"
+val scafi_simulator_gui  = "it.unibo.scafi" %% "scafi-simulator-gui"  % "0.3.3"
 
 libraryDependencies ++= Seq(scafi_core, scafi_simulator_gui)
 {% endhighlight %}
@@ -526,6 +528,17 @@ However, we are working on it.
 Take a look at the following paper for middleware- and deployment-level considerations:
 
 <div class="bibtex_display" bibtexkey="Viroli2016ubicomp"></div>
+
+# ScaFi Developer Manual
+
+## For project contributors
+
+Contributions to this project are welcome. Some advices:
+
+- As we use [git flow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow), use `feature-xxx` branches.
+- We recommend *forking* the project, developing your stuff, then contributing back via **pull request** directly from the Web interface.
+- Stay in sync with the `develop` branch: pull often from `develop`, so that you don't diverge too much from the main development line.
+- Avoid introducing technical debt. In any case, merge requests will be reviewed before merge.
 
 # Something missing?
 
