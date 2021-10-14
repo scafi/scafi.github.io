@@ -13,7 +13,8 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             {% comment %} <li {% if page.url == "/" %}class="active"{% endif %}><a href="{{ site.url }}">Home</a></li> {% endcomment %}
-            {% for my_page in site.pages %}
+            {% assign sorted_pages = site.pages | sort:"order" %}
+            {% for my_page in sorted_pages %}
             {% if my_page.title %}
             <li class="inline-block{% if page.url == my_page.url %} active{% endif %}">
                 <a href="{% if my_page.static_url %} {{my_page.static_url}} {% else %} {{ my_page.url | prepend: site.baseurl }} {% endif %}">{{ my_page.title }}</a>

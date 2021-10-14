@@ -4,6 +4,7 @@ title: Papers
 permalink: /papers/
 excerpt: Bibliography related to the ScaFi aggregate programming toolkit. This pages includes relevant peer-reviewed articles that describe or leverage ScaFi.
 main: true
+order: 3
 custom_js:
 - https://cdn.rawgit.com/pcooksey/bibtex-js/5ccf967/src/bibtex_js.js
 ---
