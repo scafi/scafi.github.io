@@ -536,9 +536,48 @@ Take a look at the following paper for middleware- and deployment-level consider
 Contributions to this project are welcome. Some advices:
 
 - As we use [git flow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow), use `feature-xxx` branches.
-- We recommend *forking* the project, developing your stuff, then contributing back via **pull request** directly from the Web interface.
+- We recommend *forking* the project, developing your stuff, then contributing back via [pull requests (PRs)](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) directly from the Web interface.
 - Stay in sync with the `develop` branch: pull often from `develop`, so that you don't diverge too much from the main development line.
 - Avoid introducing technical debt. In any case, merge requests will be reviewed before merge.
+
+## Contributing process
+
+Follow these steps to contribute.
+
+1. [Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) the [official ScaFi repository](https://github.com/scafi/scafi).
+2. Prepare your environment.
+    1. Clone your own fork.
+```
+$ git clone git@github.com:<username>/scafi.git
+$ cd scafi
+$ git checkout -b develop origin/develop
+```
+    2. Open your project with your favourite IDE, e.g., IntelliJ Idea Community Edition (note: it needs the Scala plugin installed)
+        - Open *as sbt project*
+3. Determine *what* your contribution will focus on. For instance, look at [open issues](https://github.com/scafi/scafi/issues).
+4. Develop.
+    - As we use [git flow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow), use `feature-xxx` branches.
+5. Merge your contribution.
+    - From your fork, open a [pull request (PR)](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
+    - Wait for the project maintainers to perform a series of checks and merge your branch into the official repository.
+6. Congratulations! Go back to step 3.
+
+## Building the project
+
+Once you have cloned your ScaFi repository, you can build the project using [sbt](https://www.scala-sbt.org/).
+
+You can run tests:
+
+```
+sbt test
+```
+
+Generate the docs:
+
+```
+sbt doc
+```
+
 
 # Something missing?
 
