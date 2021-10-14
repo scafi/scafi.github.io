@@ -575,7 +575,7 @@ sbt test
 Generate the docs:
 
 ```
-sbt doc
+sbt unidoc
 ```
 
 
