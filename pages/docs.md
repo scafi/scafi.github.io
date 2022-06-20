@@ -4,6 +4,7 @@ title: Docs
 permalink: /docs/
 excerpt: Documentation for ScaFi, a Scala-based aggregate programming toolkit. It describes the ScaFi domain-specific language (DSL), which implements a variant of the field calculus, as well as its API, runtime and support for construction of aggregate systems.
 main: true
+scafi: 1.1.15
 order: 2
 custom_js:
 - https://cdn.rawgit.com/pcooksey/bibtex-js/5ccf967/src/bibtex_js.js
@@ -99,8 +100,8 @@ As another example, consider the following steps.
 **Step 1-A:** SBT
 
 {% highlight scala %}
-val scafi_core  = "it.unibo.scafi" %% "scafi-core"  % "0.3.3"
-val scafi_simulator_gui  = "it.unibo.scafi" %% "scafi-simulator-gui"  % "0.3.3"
+val scafi_core  = "it.unibo.scafi" %% "scafi-core"  % "{{ site.scafi }}"
+val scafi_simulator_gui  = "it.unibo.scafi" %% "scafi-simulator-gui"  % "{{ site.scafi }}"
 
 libraryDependencies ++= Seq(scafi_core, scafi_simulator_gui)
 {% endhighlight %}
@@ -115,8 +116,8 @@ plugins {
 
 dependencies {
     implementation("org.scala-lang:scala-library:2.12.2")
-    implementation("it.unibo.scafi:scafi-core_2.12:0.3.3")
-    implementation("it.unibo.scafi:scafi-simulator-gui_2.12:0.3.3")
+    implementation("it.unibo.scafi:scafi-core_2.12:{{ site.scafi }}")
+    implementation("it.unibo.scafi:scafi-simulator-gui_2.12:{{ site.scafi }}")
     // Note: before ScaFi 0.3.3, the group ID was 'it.unibo.apice.scafiteam'
 }
 
@@ -246,7 +247,7 @@ trait Constructs {
 
   def mid: ID
   def sense[A](sensorName: String): A
-  def nbrvar[A](name: NSNS): A
+  def nbrvar[A](name: CNAME): A
 }
 {% endhighlight %}
 

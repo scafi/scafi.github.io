@@ -40,7 +40,7 @@ Notes
 
 {% highlight scala %}
 
-val scafiVersion = "1.1.5"
+val scafiVersion = "{{ site.scafi }}"
 val scafi_core  = "it.unibo.scafi" %% "scafi-core"  % scafiVersion
 val scafi_simulator  = "it.unibo.scafi" %% "scafi-simulator"  % scafiVersion
 val scafi_simulator_gui  = "it.unibo.scafi" %% "scafi-simulator-gui"  % scafiVersion
@@ -59,7 +59,7 @@ plugins {
 
 dependencies {
     val scalaMajor = "2.12"
-    val scafiVersion = "1.1.5"
+    val scafiVersion = "{{ site.scafi }}"
     implementation("org.scala-lang:scala-library:2.12.14")
     implementation("it.unibo.scafi:scafi-core_$scalaMajor:$scafiVersion")
     implementation("it.unibo.scafi:scafi-simulator-gui_$scalaMajor:$scafiVersion")
