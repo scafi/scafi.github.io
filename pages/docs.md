@@ -322,79 +322,6 @@ The output of this gradient (once stabilised after some rounds) is as follows.
 Such a gradient algorithm is **self-healing**: perturbing the network (e.g. moving nodes, changing sources) will make the gradient adjust to eventually converge to the "correct" field.
 
 
-## ScaFi Standard Library
-
-The ScaFi standard library is currently organised into the following modules:
-
-* **`FieldUtils`**: define functionality to simplify aggregation of values from neighbours,
-  accessible through two objects `includingSelf` or `excludingSelf` with obvious semantics:
-  `sumHood(e)`, `unionHood(e)`, `unionHoodSet(e)`, `mergeHood(e)(overwritePolicy)`, `anyHood(e)`, `everyHood(e)`
-* **`Gradients`**: defines gradient functions, such as: `classicGradient(src,metric)`
-* **`BlockG`**: defines the gradient-cast (**`G`**) building block for propagating information, and related functionality such as: `distanceTo(src,metric)`, `broadcast(src,x,metric)`,
-  `channel(src,target,width)`,
-  * **`BlockC`**: defines the converge-cast (**`C`**) building block for collecting information along a spanning tree
-* **`BlockS`**: defines the sparce-choice (**`s`**) building block for leader election
-* **`BlocksWithGC`**: defines functionality that leverage `C` and `G`, such as: `summarize(sink,acc,local,Null)`, `average(sink,x)`
-* **`StateManagement`**: provides utility functions over `rep`, such as:
-  `roundCounter()`, `remember(x)`, `delay(x)`, `captureChange(x,initially)`, `countChanges(x,initially)`, `goesUp(x)`, `goesDown(x)`
-* **`TimeUtils`**: provides time-related functionality, such as: `T(init,floor,decay)` and variants, `timer(length)`, `limitedMemory(x,y,timeout)`,
-  `clock(len,dcay)`, `sharedTimeWithDecay(period,dt)`, `cyclicTimerWithDacay(len,decay)`
-* **`CustomSpawn`**: provides support for aggregate processes through `spawn` function
-
-To use a library component, just mix in your aggregate program class using keyword `with`:
-
-```scala
-class MyProgram extends AggregateProgram with BlockG with BlockS { /*...*/ }
-```
-
-Parts of the ScaFi library are described in the following papers:
-
-<div class="bibtex_display" bibtexkey="Casadei2016mass|casadei2018agere|casadei2018scp"></div>
-
-TBD
-
-### Basic API
-
-TBD
-
-#### Field-operation utilities
-
-#### Gradients
-
-#### Gradient-cast (G)
-
-#### Collect-cast (C)
-
-#### Time-decay (T)
-
-#### Leader election (S)
-
-Block `S` (Sparse-choice) is used to perform decentralised leader election on a spatial basis.
-
-```scala
-val leader = S(grain = 10, metric = () => 1)
-```
-
-The previous snippet is used to elect leaders with a mean distance of 10 hops between two leaders.
-The output is a boolean field that is true in correspondence of devices that are currently leader.
-
-
-### Process API
-
-For an introduction to the **aggregate process** concept and its API, consider reading the following paper:
-
-<div class="bibtex_display" bibtexkey="casadei19processes"></div>
-
-TBD
-
-### Domain-specific APIs
-
-TBD
-
-#### Flocking
-
-#### Crowd management
-
 ## Simulating Aggregate Systems
 
 Simulation of aggregate systems
@@ -625,6 +552,94 @@ However, we are working on it.
 Take a look at the following paper for middleware- and deployment-level considerations:
 
 <div class="bibtex_display" bibtexkey="Viroli2016ubicomp"></div>
+
+
+
+
+## ScaFi Standard Library: an Overview
+
+The ScaFi standard library is organised into a number of modules such as:
+
+* **`FieldUtils`**: define functionality to simplify aggregation of values from neighbours,
+  accessible through two objects `includingSelf` or `excludingSelf` with obvious semantics:
+  `sumHood(e)`, `unionHood(e)`, `unionHoodSet(e)`, `mergeHood(e)(overwritePolicy)`, `anyHood(e)`, `everyHood(e)`
+* **`Gradients`**: defines gradient functions, such as: `classicGradient(src,metric)`
+* **`BlockG`**: defines the gradient-cast (**`G`**) building block for propagating information, and related functionality such as: `distanceTo(src,metric)`, `broadcast(src,x,metric)`,
+  `channel(src,target,width)`,
+  * **`BlockC`**: defines the converge-cast (**`C`**) building block for collecting information along a spanning tree
+* **`BlockS`**: defines the sparce-choice (**`s`**) building block for leader election
+* **`BlocksWithGC`**: defines functionality that leverage `C` and `G`, such as: `summarize(sink,acc,local,Null)`, `average(sink,x)`
+* **`StateManagement`**: provides utility functions over `rep`, such as:
+  `roundCounter()`, `remember(x)`, `delay(x)`, `captureChange(x,initially)`, `countChanges(x,initially)`, `goesUp(x)`, `goesDown(x)`
+* **`TimeUtils`**: provides time-related functionality, such as: `T(init,floor,decay)` and variants, `timer(length)`, `limitedMemory(x,y,timeout)`,
+  `clock(len,dcay)`, `sharedTimeWithDecay(period,dt)`, `cyclicTimerWithDacay(len,decay)`
+* **`CustomSpawn`**: provides support for aggregate processes through `spawn` function
+
+To use a library component, just mix in your aggregate program class using keyword `with`:
+
+```scala
+class MyProgram extends AggregateProgram with BlockG with BlockS { /*...*/ }
+```
+
+#### Leader election (S)
+
+Block **`S` (Sparse-choice)** is used to perform decentralised leader election on a spatial basis.
+
+```scala
+S(grain = 100, metric = nbrRange)
+```
+
+The previous snippet is used to elect leaders with a mean distance of 100 metres between two leaders.
+The output is a Boolean field that is true in correspondence of devices that are currently leader.
+Leaders are shown in red in the following figure.
+
+![Leader election through the S block](/imgs/example-s.png)
+
+#### More building blocks
+
+Please consult the [ScaFi API (ScalaDoc)](/doc/latest/api) for more aggregate programming building blocks.
+
+<!--
+
+Parts of the ScaFi library are described in the following papers:
+
+<div class="bibtex_display" bibtexkey="Casadei2016mass|casadei2018agere|casadei2018scp"></div>
+
+TBD
+
+### Basic API
+
+TBD
+
+#### Field-operation utilities
+
+#### Gradients
+
+#### Gradient-cast (G)
+
+#### Collect-cast (C)
+
+#### Time-decay (T)
+
+
+
+### Process API
+
+For an introduction to the **aggregate process** concept and its API, consider reading the following paper:
+
+<div class="bibtex_display" bibtexkey="casadei19processes"></div>
+
+TBD
+
+### Domain-specific APIs
+
+TBD
+
+#### Flocking
+
+#### Crowd management
+
+-->
 
 # ScaFi Developer Manual
 
