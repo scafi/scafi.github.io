@@ -57,9 +57,9 @@ plugins {
 }
 
 dependencies {
-    implementation("org.scala-lang:scala-library:2.12.2")
-    implementation("it.unibo.apice.scafiteam:scafi-core_2.12:0.3.2")
-    implementation("it.unibo.apice.scafiteam:scafi-simulator-gui_2.12:0.3.2")
+    implementation("org.scala-lang:scala-library:2.12.14")
+    implementation("it.unibo.scafi:scafi-core_2.12:0.3.3")
+    implementation("it.unibo.scafi:scafi-simulator-gui_2.12:0.3.3")
 }
 
 // the following may be needed when running using Java 11
