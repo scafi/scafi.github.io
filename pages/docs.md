@@ -19,17 +19,17 @@ custom_js:
 
 ## Introduction: Aggregate Programming
 
-Aggregate Programming
+**Aggregate Programming**
 is a paradigm
-for the development of _collective adaptive systems (CAS)_.
-It provides a compositional, functional programming model
- for expressing the self-organising behaviour of a CAS
- by a global perspective.
+for the development of **collective adaptive systems (CAS)**.
+It provides a *compositional, functional programming model*
+ for expressing the *self-organising behaviour* of a CAS
+ by a *global perspective*.
 Aggregate Computing (AC) is formally grounded in the _field calculus (FC)_,
  a minimal core language that captures the key mechanisms
  for bridging local and global behaviour.
-FC is based on the notion of a _(computational) field_,
- a (possibly dynamic) map from a (possibly dynamic) domain of devices to computational values.
+FC is based on the notion of a **(computational) field**,
+ a *(possibly dynamic) map from a (possibly dynamic) domain of devices to computational values*.
 
 Aggregate Computing is based on a logical model that can be mapped diversely onto physical infrastructure.
 
@@ -40,7 +40,7 @@ The edges connecting nodes represent logical communication channels
  according to an application-specific _neighbouring relationship_
  (which, for situated system, is typically a communication range).
 * From a behavioural point of view,
- any device continuously interprets the aggregate program
+ any device "continuously" interprets the aggregate program
  against its local context.
 * From an interactional point of view,
  any device continuously interacts with its neighbours
@@ -50,15 +50,41 @@ The edges connecting nodes represent logical communication channels
 ### Execution model
 
 In practice, devices sustain the aggregate computation
- through _asynchronous rounds_ which conceptually consist of the following steps:
+ through **asynchronous sense-compute-(inter)act rounds** which conceptually consist of the following steps:
 
-1. _Context update_: the device retrieves previous state, environment data (through sensors), and messages from neighbours.
-2. _Aggregate program execution_: the field computation is executed against the local context; this yields an *output*.
-3. _Export broadcasting to neighbours_: from the output, a subset of data (called an _export_) for neighbour coordination can be automatically derived;
+1. **Context update**: the device retrieves previous state, environment data (through *sensors*), and messages from neighbours.
+2. **Aggregate program execution**: the field computation is executed against the local context; this yields an **output**.
+3. **Action**
+    1. **Export broadcasting to neighbours**: from the output, a subset of data (called an **export**) for neighbour coordination can be automatically derived;
  the export has to be broadcast to the entire neighbourhood.
-4. _Execute actuators_: the output of the program can describe a set of actuations to be performed on the environment.
+    2. **Execution of actuators**: the output of the program can describe a set of actuations to be performed on the environment.
 
 A code example of round execution in ScaFi is shown in <a href="#building-aggregate-systems">Building Aggregate Systems</a>.
+
+### Programming model
+
+Aggregate computing is a **macro-programming** paradigm where a *single program* (called the **aggregate program**) *defines the overall behaviour of a network of devices or agents*.
+
+<div class="bibtex_display" bibtexkey="macroprogramming"></div>
+
+The aggregate program does not explicitly refer to the execution model discussed in the previous section, i.e., it somewhat abstracts from it (though in some cases it may assume that the execution model has certain characteristics). Instead, it expresses *how input fields maps to output fields*:
+ for instance, how a field of temperature sensor readings maps to a field of warnings;
+ or, as another example, how a field of service requests and resource advertisements map to a field of task allocations.
+
+A paradigmatic example is the Self-Organising Coordination Regions pattern, where a situated system is split into leader-regulated areas, where each leader collects data from devices in its area and orchestrates the activity in its area. An aggregate program to realise this pattern could be as follows in ScaFi:
+
+```
+val leader: Boolean = S(meanDistanceBetweenLeaders) // distributed leader election
+val distanceToLeader: Double = distanceTo(leader)
+val followedLeader: ID = G(distanceToLeader, mid(), x => x)
+val data: Map[ID,Data] = C[Double,Map[ID,Data]](distanceToLeader, _++_, Map(mid() -> getData()), Map.empty)
+// now the leader can use `data` to take decisions and instruct its followers
+```
+
+Notice that each value is conceptually a *field* (i.e., fields are a global denotation of program inputs, outputs, and intermediate results).
+For instance, the Boolean value `leader` will be `true` or `false` locally at each device according to whether that device is a leader or not;
+ globally, `leader` can also be interpreted as a Boolean field denoting leaders. The same goes for the other values as well: `distanceToLeader` is the field of minimum distances from leaders; `followedLeader` is the field mapping each device to the leader it currently follows;
+ `data` is a field of maps mapping devices to corresponding data items (here, we abstract from type `Data`).
 
 # ScaFi User Manual
 
