@@ -16,14 +16,13 @@ It implements a variant of the Higher-Order Field Calculus (HOFC) operational se
 which is made available as a usable domain-specific language (DSL),
 and provides a platform and API for simulating and executing Aggregate Computing systems and applications.
 
-### Resources
+### Learning Resources
 
-- [A tutorial repository on ScaFi and aggregate computing by G. Audrito](https://bitbucket.org/gaudrito/alchemist-example)
-
-#### Skeleton repositories ###
-
+- [ScaFi User Manual](/docs/#scafi-user-manual)
+- [ScaFi Developer Manual](/docs/#scafi-developer-manual)
 - [https://github.com/scafi/hello-scafi](https://github.com/scafi/hello-scafi) : shows basic usage of ScaFi
 - [https://github.com/scafi/learning-scafi-alchemist](https://github.com/scafi/learning-scafi-alchemist) : shows how to use ScaFi within the Alchemist simulator in order to simulate aggregate systems
+- [A tutorial repository on ScaFi and aggregate computing by G. Audrito](https://bitbucket.org/gaudrito/alchemist-example)
 
 ### Usage ###
 
@@ -32,23 +31,25 @@ and provides a platform and API for simulating and executing Aggregate Computing
 Notes
 
 - ScaFi >= 0.3.3 cross-compiles for Scala 2.11, 2.12, 2.13.
-- Before ScaFi 0.3.3, the group ID `it.unibo.apice.scafiteam` was used instead of the current **`it.unibo.scafi`**
+
+<!-- - Before ScaFi 0.3.3, the group ID `it.unibo.apice.scafiteam` was used instead of the current **`it.unibo.scafi`** -->
 
 #### Steps
 
-* Add the dependency to scafi in your project, e.g., via sbt.
+* Add the dependency to scafi in your project, e.g., via sbt (`build.sbt`):
 
 {% highlight scala %}
 
-val scafi_core  = "it.unibo.scafi" %% "scafi-core"  % "0.3.3"
-val scafi_simulator  = "it.unibo.scafi" %% "scafi-simulator"  % "0.3.3"
-val scafi_simulator_gui  = "it.unibo.scafi" %% "scafi-simulator-gui"  % "0.3.3"
-val scafi_platform = "it.unibo.scafi" %% "scafi-distributed"  % "0.3.3"
+val scafiVersion = "1.1.5"
+val scafi_core  = "it.unibo.scafi" %% "scafi-core"  % scafiVersion
+val scafi_simulator  = "it.unibo.scafi" %% "scafi-simulator"  % scafiVersion
+val scafi_simulator_gui  = "it.unibo.scafi" %% "scafi-simulator-gui"  % scafiVersion
+val scafi_platform = "it.unibo.scafi" %% "scafi-distributed"  % scafiVersion
 
 libraryDependencies ++= Seq(scafi_core, scafi_simulator_gui, scafi_platform)
 {% endhighlight %}
 
-or via Gradle (`build.gradle.kts`)
+or via Gradle (`build.gradle.kts`):
 
 {% highlight kotlin %}
 plugins {
@@ -57,17 +58,20 @@ plugins {
 }
 
 dependencies {
+    val scalaMajor = "2.12"
+    val scafiVersion = "1.1.5"
     implementation("org.scala-lang:scala-library:2.12.14")
-    implementation("it.unibo.scafi:scafi-core_2.12:0.3.3")
-    implementation("it.unibo.scafi:scafi-simulator-gui_2.12:0.3.3")
+    implementation("it.unibo.scafi:scafi-core_$scalaMajor:$scafiVersion")
+    implementation("it.unibo.scafi:scafi-simulator-gui_$scalaMajor:$scafiVersion")
 }
-
+{% endhighlight %}
+<!--
 // the following may be needed when running using Java 11
 tasks.withType<ScalaCompile> {
     sourceCompatibility = "1.8"
     targetCompatibility = "1.8"
 }
-{% endhighlight %}
+-->
 
 * Use the API (e.g., to set up a simple simulation)
 
@@ -115,6 +119,7 @@ More information is available in the [ScaFi Documentation](/docs/).
 
 * Mirko Viroli
 * Roberto Casadei
+* Gianluca Aguzzi
 
 #### Research Collaborators ###
 
