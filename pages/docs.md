@@ -428,19 +428,19 @@ package experiments
 
 import it.unibo.scafi.incarnations.BasicSimulationIncarnation.AggregateProgram
 
-object MyAggregateProgram extends AggregateProgram {
+object MyAggregateProgram extends AggregateProgram with StandardSensorNames {
 
   override def main() = gradient(isSource)
 
   def gradient(source: Boolean): Double =
     rep(Double.PositiveInfinity){ distance =>
       mux(source) { 0.0 } {
-        foldhood(Double.PositiveInfinity)(Math.min)(nbr{distance}+nbrRange)
+        foldhood(Double.PositiveInfinity)(Math.min)(nbr{distance} + nbrRange)
       }
     }
 
   def isSource = sense[Boolean]("source")
-  def nbrRange = nbrvar[Double](NBR_RANGE_NAME)
+  def nbrRange = nbrvar[Double](NBR_RANGE)
 }
 
 import it.unibo.scafi.simulation.gui.{Launcher, Settings}
