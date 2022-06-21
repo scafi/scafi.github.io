@@ -276,7 +276,7 @@ is to be seen as a **constant uniform field** (since it does not change over tim
 
 Running the above program by an aggregate system will produce the following result, where the output of the program is shown as a value for each node.
 
-![Constant uniform field.](/imgs/example-constant-uniform-field.png)
+![Constant uniform field.](/imgs/example-constant-uniform-field.png){:.centered}
 
 A constant field does not need to be uniform. For instance, given a static network of devices, then
 
