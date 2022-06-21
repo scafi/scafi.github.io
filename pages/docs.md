@@ -2,7 +2,7 @@
 layout: page
 title: Docs
 permalink: /docs/
-excerpt: Documentation for ScaFi, a Scala-based aggregate programming toolkit. It describes the ScaFi domain-specific language (DSL), which implements a variant of the field calculus, as well as its API, runtime and support for construction of aggregate systems.
+excerpt: Documentation for ScaFi, a Scala-based aggregate programming toolkit. It describes the ScaFi domain-specific language (DSL), which implements a variant of the field calculus, as well as its API, runtime and support for the construction of aggregate systems.
 main: true
 scafi: 1.1.15
 order: 2
@@ -25,7 +25,7 @@ is a paradigm
 for the development of **collective adaptive systems (CAS)**.
 It provides a *compositional, functional programming model*
  for expressing the *self-organising behaviour* of a CAS
- by a *global perspective*.
+ from a *global perspective*.
 Aggregate Computing (AC) is formally grounded in the _field calculus (FC)_,
  a minimal core language that captures the key mechanisms
  for bridging local and global behaviour.
@@ -39,14 +39,14 @@ Aggregate Computing is based on a logical model that can be mapped diversely ont
 The edges connecting nodes represent logical communication channels
  that are set up by the aggregate computing platform
  according to an application-specific _neighbouring relationship_
- (which, for situated system, is typically a communication range).
+ (which, for situated systems, is typically a communication range).
 * From a behavioural point of view,
  any device "continuously" interprets the aggregate program
  against its local context.
 * From an interactional point of view,
  any device continuously interacts with its neighbours
  to acquire and propagate context.
- This is what enables local activity to influence global activity and viceversa.
+ This is what enables local activity to influence global activity and vice versa.
 
 ### Execution model
 
@@ -197,7 +197,7 @@ Indeed, an `AggregateSystem` object can be seen as a function from `Context` to 
 you give a certain context, and get some export. The export must be passed to neighbours so that they can build their own context
 and re-interpret the aggregate program.
 
-**Step 2-4:** After a simple infestigation, you may want to switch to a more sophisticated simulator, like Alchemist.
+**Step 2-4:** After a simple investigation, you may want to switch to a more sophisticated simulator, like Alchemist.
 Take a look at <a href="#Alchemist-simulator">Alchemist simulator</a>
 for details about the use of ScaFi within Alchemist.
 
@@ -208,15 +208,15 @@ From a deployment perspective, ScaFi consists of the following modules:
 * **`scafi-commons`**: provides basic entities (e.g., spatial and temporal abstractions)
 * **`scafi-core`**: represents the core of the project and provides an implementation of the ScaFi aggregate programming DSL,
   together with its standard library
-* **`scafi-simulator`**: provides a basic support for simulating aggregate systems
-* **`scafi-simulator-gui`**: provides a GUI for visualising simulations of aggregate systems
+* **`scafi-simulator: provides basic support for simulating aggregate systems
+* **`scafi-simulator-GUI`**: provides a GUI for visualising simulations of aggregate systems
 * **`spala`**: provides an actor-based aggregate computing middleware
 * **`scafi-distributed`**: ScaFi integration-layer for `spala`
 
 The modules to be imported (e.g., via sbt or Gradle) depend on the use case:
 
 * _Development of a real-world aggregate application_.
-  Bring `scafi-core` in for a fine-grained integration. For more straightforward distributed system setup, take a look at `scafi-distributed`.
+  Bring `scafi-core` in for a fine-grained integration. For a more straightforward distributed system setup, take a look at `scafi-distributed`.
 * _Play, exercise, and experiment with aggregate programming_.
   Bring `scafi-core` in for writing aggregate programs as well as `scafi-simulator-gui` to quickly render an executing system.
 * _Set up sophisticated simulations_
@@ -261,7 +261,7 @@ This trait is implemented by `AggregateProgram` (the class to extend for definin
 * `sense(sensorName)` abstracts access to local sensors; and
 * `nbrvar(sensorName)` abstracts access to "neighbouring sensors" that behave similarly to `nbr` but are provided by the platform: i.e., such sensors provide a value *for each neighbour*.
 
-Now let's consider a progression of example to help you get acquainted with the programming model and the aforementioned constructs.
+Now let's consider a progression of examples to help you get acquainted with the programming model and the aforementioned constructs.
 Notice that these examples can be run on [ScaFi Web](/web).
 
 #### Basic expressions
@@ -340,7 +340,7 @@ Specifically:
 * If a node is a source (i.e., if sensing the Boolean sensor `sensor` returns `true`), then its gradient value is `0` (by definition).
 * If a node is not a source, then will take as its gradient value the output of expression `minHoodPlus(nbr{distance} + nbrRange)`.
 * `minHoodPlus(e)` is the same as `foldhoodPlus(Double.NegativeInfinity)(Math.min)(e)`, namely, it selects the minimum value among those obtained by evaluating `e` against the neighbours (excluded the device itself).
-* The argument of `mingHoodPlus` is `nbr{distance} + nbrRange()`, which basically amounts at calculating, for each neighbour, the sum of the neighbour's most recent gradient value and the corresponding distance to that neighbour (obtained by neighbouring sensor `nbrRange`, which may be thought as `nbrvar[Double]("nbrRange")`).
+* The argument of `mingHoodPlus` is `nbr{distance} + nbrRange()`, which basically amounts to calculating, for each neighbour, the sum of the neighbour's most recent gradient value and the corresponding distance to that neighbour (obtained by neighbouring sensor `nbrRange`, which may be thought as `nbrvar[Double]("nbrRange")`).
 
 The output of this gradient (once stabilised after some rounds) is as follows.
 
@@ -594,15 +594,15 @@ The ScaFi standard library is organised into a number of modules such as:
 * **`BlockG`**: defines the gradient-cast (**`G`**) building block for propagating information, and related functionality such as: `distanceTo(src,metric)`, `broadcast(src,x,metric)`,
   `channel(src,target,width)`,
   * **`BlockC`**: defines the converge-cast (**`C`**) building block for collecting information along a spanning tree
-* **`BlockS`**: defines the sparce-choice (**`s`**) building block for leader election
+* **`BlockS`**: defines the sparse-choice (**`S`**) building block for leader election
 * **`BlocksWithGC`**: defines functionality that leverage `C` and `G`, such as: `summarize(sink,acc,local,Null)`, `average(sink,x)`
 * **`StateManagement`**: provides utility functions over `rep`, such as:
   `roundCounter()`, `remember(x)`, `delay(x)`, `captureChange(x,initially)`, `countChanges(x,initially)`, `goesUp(x)`, `goesDown(x)`
 * **`TimeUtils`**: provides time-related functionality, such as: `T(init,floor,decay)` and variants, `timer(length)`, `limitedMemory(x,y,timeout)`,
-  `clock(len,dcay)`, `sharedTimeWithDecay(period,dt)`, `cyclicTimerWithDacay(len,decay)`
+  `clock(len,decay)`, `sharedTimeWithDecay(period,dt)`, `cyclicTimerWithDacay(len,decay)`
 * **`CustomSpawn`**: provides support for aggregate processes through `spawn` function
 
-To use a library component, just mix in your aggregate program class using keyword `with`:
+To use a library component, just mix in your aggregate program class using the keyword `with`:
 
 ```scala
 class MyProgram extends AggregateProgram with BlockG with BlockS { /*...*/ }
@@ -610,14 +610,14 @@ class MyProgram extends AggregateProgram with BlockG with BlockS { /*...*/ }
 
 #### Leader election (S)
 
-Block **`S` (Sparse-choice)** is used to perform decentralised leader election on a spatial basis.
+Block **`S` (Sparse-choice)** is used to perform a decentralised leader election on a spatial basis.
 
 ```scala
 S(grain = 100, metric = nbrRange)
 ```
 
 The previous snippet is used to elect leaders with a mean distance of 100 metres between two leaders.
-The output is a Boolean field that is true in correspondence of devices that are currently leader.
+The output is a Boolean field that is true in correspondence of devices that are currently leaders.
 Leaders are shown in red in the following figure.
 
 ![Leader election through the S block](/imgs/example-s.png){:.centered}
@@ -708,7 +708,7 @@ Once you have cloned your ScaFi repository, you can build the project using [sbt
 You can run tests:
 
 ```
-sbt test
+sbt +test
 ```
 
 Generate the docs:
