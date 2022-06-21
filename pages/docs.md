@@ -695,7 +695,8 @@ $ git checkout -b develop origin/develop
         - Open *as sbt project*
 3. Determine *what* your contribution will focus on. For instance, look at [open issues](https://github.com/scafi/scafi/issues).
 4. Develop.
-    - As we use [git flow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow), use `feature-xxx` branches.
+    - As we use (a variant of) [git flow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow), use `feature-xxx` branches.
+    - We strive to adopt development best practices. So, for instance, we leverage [conventional commits](https://www.conventionalcommits.org/): see [predefined configuration](https://www.npmjs.com/package/semantic-release-preconfigured-conventional-commits).
 5. Merge your contribution.
     - From your fork, open a [pull request (PR)](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
     - Wait for the project maintainers to perform a series of checks and merge your branch into the official repository.
