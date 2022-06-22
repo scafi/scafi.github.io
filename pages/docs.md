@@ -452,6 +452,11 @@ object SimulationRunner extends Launcher {
 }
 {% endhighlight %}
 
+By running the `SimulationRunner` program, the simulator will show up.
+Setting `Settings.ShowConfigPanel` can be used to configure whether a launcher window has to be shown or not.
+In the latter case, the simulation will immediately start by running program `Settings.Sim_ProgramClass`
+ through a *default simulation model* (*random network* with *random sequential scheduling* and *instantaneous, perfect communication* with neighbours at the end of each round).
+
 ### Alchemist simulator
 
 * Consider the following skeleton repository: [https://github.com/scafi/learning-scafi-alchemist](https://github.com/scafi/learning-scafi-alchemist)
