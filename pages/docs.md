@@ -208,10 +208,14 @@ From a deployment perspective, ScaFi consists of the following modules:
 * **`scafi-commons`**: provides basic entities (e.g., spatial and temporal abstractions)
 * **`scafi-core`**: represents the core of the project and provides an implementation of the ScaFi aggregate programming DSL,
   together with its standard library
-* **`scafi-simulator: provides basic support for simulating aggregate systems
+* **`scafi-simulator`**: provides basic support for simulating aggregate systems
 * **`scafi-simulator-GUI`**: provides a GUI for visualising simulations of aggregate systems
 * **`spala`**: provides an actor-based aggregate computing middleware
 * **`scafi-distributed`**: ScaFi integration-layer for `spala`
+
+The whole structure is resumed in the following picture:
+
+![ScaFi structure.](/imgs/scafi-project-org.drawio.svg){:.centered}
 
 The modules to be imported (e.g., via sbt or Gradle) depend on the use case:
 

@@ -3,7 +3,7 @@ layout: home
 title: Home
 order: 0
 main: true
-excerpt: scafi (Scala with computational Fields) is a field calculus-based DSL and toolkit for Aggregate Programming, providing support for globally describing and executing self-organising, collective adaptive systems made of a networked set of logical situated devices.
+excerpt: scafi (Scala with computational Fields) is a field calculus-based DSL and toolkit for Aggregate Programming, providing a support for globally describing and executing self-organising, collective adaptive systems made of a networked set of logical situated devices.
 ---
 
 # ScaFi Aggregate Programming Toolkit #
