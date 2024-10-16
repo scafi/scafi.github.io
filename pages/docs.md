@@ -115,9 +115,9 @@ plugins {
 }
 
 dependencies {
-    implementation("org.scala-lang:scala-library:2.12.2")
-    implementation("it.unibo.scafi:scafi-core_2.12:{{ site.scafi }}")
-    implementation("it.unibo.scafi:scafi-simulator-gui_2.12:{{ site.scafi }}")
+    implementation("org.scala-lang:scala-library:2.13.2")
+    implementation("it.unibo.scafi:scafi-core_2.13:{{ site.scafi }}")
+    implementation("it.unibo.scafi:scafi-simulator-gui_2.13:{{ site.scafi }}")
     // Note: before ScaFi 0.3.3, the group ID was 'it.unibo.apice.scafiteam'
 }
 
@@ -148,11 +148,11 @@ import MyIncarnation._
 
 {% highlight scala %}
 // An "aggregate program" can be seen as a function from a Context to an Export
-// The Context is the input for a local computation: includes state
+// The Context is the input for a local computation: including state
 //  from previous computations, sensor data, and exports from neighbours.
 // The export is a tree-like data structure that contains all the information needed
 //  for coordinating with neighbours. It also contains the output of the computation.
-object MyAggregateProgram extends AggregateProgram with StandardSensorNames {
+class MyAggregateProgram extends AggregateProgram with StandardSensorNames {
   // Main program expression driving the ensemble
   // This is run in a loop for each agent
   // According to this expression, coordination messages are automatically generated
@@ -174,7 +174,7 @@ object MyAggregateProgram extends AggregateProgram with StandardSensorNames {
     }
 
   // A custom local sensor
-  def isSource = sense[Boolean]("source")
+  def isSource = sense[Boolean]("sens1")
   // A custom "neighbouring sensor"
   def nbrRange = nbrvar[Double](NBR_RANGE)
 }
@@ -183,7 +183,7 @@ object MyAggregateProgram extends AggregateProgram with StandardSensorNames {
 **Step 2-3:** Use the ScaFi internal simulator to run the program on a predefined network of devices.
 
 {% highlight scala %}
-import it.unibo.scafi.simulation.gui.{Launcher, Settings}
+import it.unibo.scafi.simulation.frontend.{Launcher, Settings}
 
 object SimulationRunner extends Launcher {
   Settings.Sim_ProgramClass = "experiments.MyAggregateProgram"
@@ -260,7 +260,7 @@ This trait is implemented by `AggregateProgram` (the class to extend for definin
 * `rep(init)(f)` captures **state evolution**, starting from an `init` value that is updated each round through `fun`;
 - `nbr(e)` captures communication, of the value computed from its `e` expression, with neighbours; it is used only inside the argument `expr` of `foldhood(init)(acc)(expr)`, which supports **neighbourhood data aggregation**, through a standard "fold" of functional programming
  with initial value `init`, accumulator function `acc`, and the set of values to fold over obtained by evaluating `expr` against all neighbours;
-* `branch(cond)(th)(el)`, which can also be called as `branch(cond){ th } { el }` captures **domain partitioning** (**space-time branching**): essentially, the devices for which `cond` evaluates to `true` will run sub-computatation `th`, while the others will run `el`;
+* `branch(cond)(th)(el)`, which can also be called as `branch(cond){ th } { el }` captures **domain partitioning** (**space-time branching**): essentially, the devices for which `cond` evaluates to `true` will run sub-computation `th`, while the others will run `el`;
 * `mid` is a built-in sensor providing the identifier of devices;
 * `sense(sensorName)` abstracts access to local sensors; and
 * `nbrvar(sensorName)` abstracts access to "neighbouring sensors" that behave similarly to `nbr` but are provided by the platform: i.e., such sensors provide a value *for each neighbour*.
