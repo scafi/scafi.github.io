@@ -81,7 +81,7 @@ package experiments
 
 import it.unibo.scafi.incarnations.BasicSimulationIncarnation.AggregateProgram
 
-object MyAggregateProgram extends AggregateProgram {
+class MyAggregateProgram extends AggregateProgram {
 
   override def main() = gradient(isSource)
 
@@ -92,17 +92,18 @@ object MyAggregateProgram extends AggregateProgram {
       }
     }
 
-  def isSource = sense[Boolean]("source")
+  def isSource = sense[Boolean]("sens1")
   def nbrRange = nbrvar[Double](NBR_RANGE_NAME)
 }
 
-import it.unibo.scafi.simulation.gui.{Launcher, Settings}
+import it.unibo.scafi.simulation.frontend.{Launcher, Settings}
 
 object SimulationRunner extends Launcher {
   Settings.Sim_ProgramClass = "experiments.MyAggregateProgram"
-  Settings.ShowConfigPanel = true
+  Settings.ShowConfigPanel = false
   launch()
 }
+
 {% endhighlight %}
 
 More information is available in the [ScaFi Documentation](/docs/).
