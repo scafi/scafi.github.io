@@ -23,6 +23,8 @@ and provides a platform and API for simulating and executing Aggregate Computing
 - [https://github.com/scafi/hello-scafi](https://github.com/scafi/hello-scafi) : shows basic usage of ScaFi
 - [https://github.com/scafi/learning-scafi-alchemist](https://github.com/scafi/learning-scafi-alchemist) : shows how to use ScaFi within the Alchemist simulator in order to simulate aggregate systems
 - [A tutorial repository on ScaFi and aggregate computing by G. Audrito](https://bitbucket.org/gaudrito/alchemist-example)
+- [A tutorial on ScaFi delivered at the ACSOS'23 conference](https://github.com/AggregateComputing/acsos-2023-scafi-tutorial)
+
 
 ### Usage ###
 
