@@ -11,11 +11,6 @@
       {% endfor %}
     {% endif %}
 
-    {% if page.custom_js %}
-      {% for js_file in page.custom_js %}
-      <script src="{{ js_file }}" type="text/javascript"></script>
-      {% endfor %}
-    {% endif %}
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen,projection" href="{{ "/assets/bootstrap.css" | relative_url }}" />
