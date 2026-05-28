@@ -6,7 +6,7 @@ excerpt: Bibliography related to the ScaFi aggregate programming toolkit. This p
 main: true
 order: 3
 custom_js:
-- https://cdn.jsdelivr.net/gh/pcooksey/bibtex-js@5ccf967/src/bibtex_js.js
+- /js/bibtex_js.js
 ---
 
 
