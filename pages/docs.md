@@ -7,7 +7,7 @@ main: true
 scafi: 1.1.15
 order: 2
 custom_js:
-- https://cdn.rawgit.com/pcooksey/bibtex-js/5ccf967/src/bibtex_js.js
+- https://cdn.jsdelivr.net/gh/pcooksey/bibtex-js@5ccf967/src/bibtex_js.js
 ---
 
 <bibtex src="{{ '/assets/biblio.bib' | relative_url }}"></bibtex>
