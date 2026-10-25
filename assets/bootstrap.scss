@@ -1,4 +1,32 @@
 ---
 ---
 
+// ScaFi palette, from the logo
+$scafi-teal-dark: #0C4A5E;
+$scafi-teal: #0E7490;
+$scafi-red: #DC322F;
+
+$brand-primary: $scafi-teal;
+$text-color: #1f2a30;
+$headings-color: $scafi-teal-dark;
+$headings-font-weight: 600;
+$font-family-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-family-monospace: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+$font-size-base: 16px;
+$line-height-base: 1.6;
+$font-size-h1: 36px;
+$font-size-h2: 28px;
+$font-size-h3: 22px;
+$font-size-h4: 18px;
+$border-radius-base: 6px;
+$container-large-desktop: (940px + 30px);
+$navbar-inverse-bg: #14181c;
+$navbar-inverse-border: #14181c;
+$navbar-inverse-link-color: #c3ccd2;
+$navbar-inverse-link-active-bg: transparent;
+$code-color: $scafi-teal-dark;
+$code-bg: #eaf3f5;
+$pre-bg: #f5f9f9;
+$pre-border-color: #dde7ea;
+
 @import '_bootstrap';

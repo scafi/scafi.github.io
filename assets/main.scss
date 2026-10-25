@@ -2,50 +2,137 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
 
-@import "site-styles";
+$teal-dark: #0C4A5E;
+$teal: #0E7490;
+$red: #DC322F;
+$line: #dde7ea;
+$muted: #5f7a83;
+$soft-bg: #f5f9f9;
 
 body {
   padding-top: 70px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-.theme-dropdown .dropdown-menu {
-  position: static;
-  display: block;
-  margin-bottom: 20px;
+a {
+  text-underline-offset: 2px;
 }
 
-.theme-showcase > p > .btn {
-  margin: 5px 0;
+// Navbar
+.navbar-brand.title {
+  display: flex;
+  align-items: center;
+  padding-top: 0;
+  padding-bottom: 0;
+
+  img {
+    height: 30px;
+  }
 }
 
-.theme-showcase .navbar .container {
-  width: auto;
+.navbar-inverse .navbar-nav > .active > a {
+  box-shadow: inset 0 -3px 0 $red;
 }
 
-.navbar-brand.title, .navbar-brand.title:hover  {
-  color:#fa0;
-}
-
-#page-footer {
-	background: #555;
-	color: #ddd;
-	padding:30px;
-}
-
+// Content
 #main-container {
-	margin-bottom:20px;
+  margin-bottom: 48px;
 }
 
-.toc-entry.toc-h4,
-.toc-entry.toc-h5,
-.toc-entry.toc-h6
-{
-  display: none;
+pre {
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 14px 16px;
 }
 
 img.centered {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  max-width: 100%;
   width: 50%;
+}
+
+iframe.demo {
+  width: 100%;
+  height: 380px;
+  border: 1px solid $line;
+  border-radius: 8px;
+}
+
+// Docs table of contents
+#markdown-toc {
+  background: $soft-bg;
+  border: 1px solid $line;
+  border-radius: 6px;
+  padding: 16px 16px 16px 36px;
+  columns: 2 300px;
+  column-gap: 32px;
+  font-size: 15px;
+}
+
+// Home
+.hero {
+  padding: 16px 0 8px;
+
+  .lead {
+    max-width: 46em;
+    font-size: 19px;
+  }
+
+  .btn {
+    margin: 4px 6px 4px 0;
+  }
+}
+
+// Citations
+.cite-box {
+  background: $soft-bg;
+  border-left: 4px solid $red;
+  border-radius: 0 6px 6px 0;
+  padding: 12px 16px;
+  margin: 16px 0 24px;
+
+  summary {
+    cursor: pointer;
+    color: $teal;
+  }
+
+  pre {
+    margin: 8px 0 0;
+    font-size: 13px;
+    white-space: pre-wrap;
+  }
+}
+
+div.bibtexentry {
+  border-left: 3px solid $teal;
+  padding: 2px 0 2px 14px;
+  margin-bottom: 16px;
+
+  .title {
+    font-weight: 600;
+  }
+
+  .paper-meta,
+  .paper-note {
+    color: $muted;
+    font-size: 15px;
+  }
+}
+
+// Footer
+#page-footer {
+  margin-top: auto;
+  background: $soft-bg;
+  border-top: 1px solid $line;
+  color: $muted;
+  padding: 24px 0;
+  font-size: 14px;
+
+  a {
+    color: $muted;
+  }
 }
