@@ -4,9 +4,9 @@ title: Docs
 permalink: /docs/
 excerpt: Documentation for ScaFi, a Scala-based aggregate programming toolkit. It describes the ScaFi domain-specific language (DSL), which implements a variant of the field calculus, as well as its API, runtime and support for the construction of aggregate systems.
 main: true
-scafi: 1.1.15
-order: 2
+order: 1
 custom_js:
+- https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment.min.js
 - /js/bibtex_js.js
 ---
 
@@ -100,6 +100,8 @@ As another example, consider the following steps.
 **Step 1-A:** SBT
 
 {% highlight scala %}
+scalaVersion := "2.13.18" // scafi-simulator-gui is available only for Scala 2.13
+
 val scafi_core  = "it.unibo.scafi" %% "scafi-core"  % "{{ site.scafi }}"
 val scafi_simulator_gui  = "it.unibo.scafi" %% "scafi-simulator-gui"  % "{{ site.scafi }}"
 
@@ -110,34 +112,26 @@ libraryDependencies ++= Seq(scafi_core, scafi_simulator_gui)
 
 {% highlight kotlin %}
 plugins {
-    java
     scala
 }
 
 dependencies {
-    implementation("org.scala-lang:scala-library:2.13.2")
+    implementation("org.scala-lang:scala-library:2.13.18")
     implementation("it.unibo.scafi:scafi-core_2.13:{{ site.scafi }}")
     implementation("it.unibo.scafi:scafi-simulator-gui_2.13:{{ site.scafi }}")
-    // Note: before ScaFi 0.3.3, the group ID was 'it.unibo.apice.scafiteam'
-}
-
-// the following may be needed when running using Java 11
-tasks.withType<ScalaCompile> {
-    sourceCompatibility = "1.8"
-    targetCompatibility = "1.8"
 }
 {% endhighlight %}
 
 **Step 2:** Use the API (e.g., to set up a simple simulation)
 
 **Step 2-1:** Import or define an incarnation (a family of types),
-from which you can import types like `AggregateProgram`
+from which you can import types like `AggregateProgram` and `StandardSensorNames`
 
 {% highlight scala %}
 package experiments
 
 // Method #1: Use an incarnation which is already defined
-import it.unibo.scafi.incarnations.BasicSimulationIncarnation.AggregateProgram
+import it.unibo.scafi.incarnations.BasicSimulationIncarnation.{AggregateProgram, StandardSensorNames}
 
 // Method #2: Define a custom incarnation and import stuff from it
 object MyIncarnation extends it.unibo.scafi.incarnations.BasicAbstractIncarnation
