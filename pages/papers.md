@@ -2,15 +2,18 @@
 layout: page
 title: Papers
 permalink: /papers/
-excerpt: Bibliography related to the ScaFi aggregate programming toolkit. This pages includes relevant peer-reviewed articles that describe or leverage ScaFi.
+excerpt: Bibliography related to the ScaFi aggregate programming toolkit. This page includes relevant peer-reviewed articles that describe or leverage ScaFi.
 main: true
-order: 3
+order: 4
 custom_js:
+- https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment.min.js
 - /js/bibtex_js.js
 ---
 
 
 # Papers
+
+{% include cite.html %}
 
 <bibtex src="{{ '/assets/biblio.bib' | relative_url }}"></bibtex>
 
@@ -22,8 +25,8 @@ custom_js:
         <div class="templates"></div>
       </div>
     </div>
-    <div class="section @book">
-      <h3>Books</h3>
+    <div class="section @book|@incollection">
+      <h3>Books and Book Chapters</h3>
       <div class="sort year" extra="DESC number">
         <div class="templates"></div>
       </div>
@@ -44,28 +47,15 @@ custom_js:
 </div>
 
 <div class="bibtex_template">
-  <div class="if author">
-  <span class="author"><span class="first"></span> <span class="last"></span></span>
+  <div class="paperTitle"><span class="title"></span></div>
+  <div class="paper-meta">
+    <span class="if author"><span class="author"><span class="first"></span> <span class="last"></span></span>.</span>
+    <span class="if journal"><em><span class="journal"></span></em>,</span>
+    <span class="if booktitle"><em><span class="booktitle"></span></em>,</span>
+    <span class="if year"><span class="year"></span>.</span>
+    <span class="if url"><a class="url">Link</a></span>
   </div>
-  <div>
-    <span class="if booktitle"><span class="booktitle"></span>.</span>
-    <span class="if journal"><span class="journal"></span>.</span>
-    <span class="if year">
-      <span class="year"></span>.
-    </span>
-    <span class="if url">
-      <a class="url">(view online)</a>
-    </span>
-  </div>
-  <div class="paperTitle">
-    <span class="title"></span>
-  </div>
-  <span class="if note">
-  <div>
-  <span class="label">Short summary:</span>
-    <span class="note"></span>
-  </div>
-  </span>
+  <div class="if note"><div class="paper-note"><span class="note"></span></div></div>
 </div>
 
 <div id="bibtex_display"></div>
