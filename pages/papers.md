@@ -2,70 +2,16 @@
 layout: page
 title: Papers
 permalink: /papers/
-excerpt: Bibliography related to the ScaFi aggregate programming toolkit. This pages includes relevant peer-reviewed articles that describe or leverage ScaFi.
+excerpt: Bibliography related to the ScaFi aggregate programming toolkit. This page includes relevant peer-reviewed articles that describe or leverage ScaFi.
 main: true
-order: 3
-custom_js:
-- /js/bibtex_js.js
+order: 4
+bib: true
 ---
-
 
 # Papers
 
-<bibtex src="{{ '/assets/biblio.bib' | relative_url }}"></bibtex>
+Peer-reviewed articles and theses that describe ScaFi or use it in their implementation and evaluation.
 
-<div class="bibtex_structure">
-  <div class="sections bibtextypekey">
-    <div class="section @article">
-      <h3>Journal Articles</h3>
-      <div class="sort year" extra="DESC number">
-        <div class="templates"></div>
-      </div>
-    </div>
-    <div class="section @book">
-      <h3>Books</h3>
-      <div class="sort year" extra="DESC number">
-        <div class="templates"></div>
-      </div>
-    </div>
-    <div class="section @inproceedings">
-      <h3>Conference and Workshop Papers</h3>
-      <div class="sort year" extra="DESC number">
-        <div class="templates"></div>
-      </div>
-    </div>
-    <div class="section @misc|@phdthesis|@mastersthesis|@bachelorsthesis|@techreport">
-      <h3>Other Publications (theses, tech reports...)</h3>
-      <div class="sort year" extra="DESC number">
-        <div class="templates"></div>
-      </div>
-    </div>
-  </div>
-</div>
+{% include cite.html %}
 
-<div class="bibtex_template">
-  <div class="if author">
-  <span class="author"><span class="first"></span> <span class="last"></span></span>
-  </div>
-  <div>
-    <span class="if booktitle"><span class="booktitle"></span>.</span>
-    <span class="if journal"><span class="journal"></span>.</span>
-    <span class="if year">
-      <span class="year"></span>.
-    </span>
-    <span class="if url">
-      <a class="url">(view online)</a>
-    </span>
-  </div>
-  <div class="paperTitle">
-    <span class="title"></span>
-  </div>
-  <span class="if note">
-  <div>
-  <span class="label">Short summary:</span>
-    <span class="note"></span>
-  </div>
-  </span>
-</div>
-
-<div id="bibtex_display"></div>
+<div id="paper-list"></div>

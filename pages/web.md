@@ -1,9 +1,9 @@
 ---
 layout: page
-title: Web
+title: Playground
 static_url: /web/
-excerpt: ScaFi Web Tool - Interactive web simulator.
-order: 1.5
+excerpt: ScaFi Web, a playground to write and simulate aggregate programs in the browser.
+order: 2
 main: true
 ---
 

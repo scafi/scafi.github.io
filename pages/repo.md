@@ -1,9 +1,9 @@
 ---
 layout: page
-title: Repository
+title: GitHub
 static_url: https://github.com/scafi/scafi
 excerpt: Redirect to the ScaFi's GitHub repository.
-order: 1
+order: 5
 main: true
 ---
 

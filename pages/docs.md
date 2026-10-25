@@ -4,13 +4,11 @@ title: Docs
 permalink: /docs/
 excerpt: Documentation for ScaFi, a Scala-based aggregate programming toolkit. It describes the ScaFi domain-specific language (DSL), which implements a variant of the field calculus, as well as its API, runtime and support for the construction of aggregate systems.
 main: true
-scafi: 1.1.15
-order: 2
-custom_js:
-- /js/bibtex_js.js
+order: 1
+bib: true
+wide: true
+article_class: docs
 ---
-
-<bibtex src="{{ '/assets/biblio.bib' | relative_url }}"></bibtex>
 
 
 * Do not remove this line (it will not be displayed)
@@ -66,7 +64,7 @@ A code example of round execution in ScaFi is shown in <a href="#building-aggreg
 
 Aggregate computing is a **macro-programming** paradigm where a *single program* (called the **aggregate program**) *defines the overall behaviour of a network of devices or agents*.
 
-<div class="bibtex_display" bibtexkey="macroprogramming"></div>
+<div data-cite="macroprogramming"></div>
 
 The aggregate program does not explicitly refer to the execution model discussed in the previous section, i.e., it somewhat abstracts from it (though in some cases it may assume that the execution model has certain characteristics). Instead, it expresses *how input fields maps to output fields*:
  for instance, how a field of temperature sensor readings maps to a field of warnings;
@@ -100,6 +98,8 @@ As another example, consider the following steps.
 **Step 1-A:** SBT
 
 {% highlight scala %}
+scalaVersion := "2.13.18" // scafi-simulator-gui is available only for Scala 2.13
+
 val scafi_core  = "it.unibo.scafi" %% "scafi-core"  % "{{ site.scafi }}"
 val scafi_simulator_gui  = "it.unibo.scafi" %% "scafi-simulator-gui"  % "{{ site.scafi }}"
 
@@ -110,34 +110,26 @@ libraryDependencies ++= Seq(scafi_core, scafi_simulator_gui)
 
 {% highlight kotlin %}
 plugins {
-    java
     scala
 }
 
 dependencies {
-    implementation("org.scala-lang:scala-library:2.13.2")
+    implementation("org.scala-lang:scala-library:2.13.18")
     implementation("it.unibo.scafi:scafi-core_2.13:{{ site.scafi }}")
     implementation("it.unibo.scafi:scafi-simulator-gui_2.13:{{ site.scafi }}")
-    // Note: before ScaFi 0.3.3, the group ID was 'it.unibo.apice.scafiteam'
-}
-
-// the following may be needed when running using Java 11
-tasks.withType<ScalaCompile> {
-    sourceCompatibility = "1.8"
-    targetCompatibility = "1.8"
 }
 {% endhighlight %}
 
 **Step 2:** Use the API (e.g., to set up a simple simulation)
 
 **Step 2-1:** Import or define an incarnation (a family of types),
-from which you can import types like `AggregateProgram`
+from which you can import types like `AggregateProgram` and `StandardSensorNames`
 
 {% highlight scala %}
 package experiments
 
 // Method #1: Use an incarnation which is already defined
-import it.unibo.scafi.incarnations.BasicSimulationIncarnation.AggregateProgram
+import it.unibo.scafi.incarnations.BasicSimulationIncarnation.{AggregateProgram, StandardSensorNames}
 
 // Method #2: Define a custom incarnation and import stuff from it
 object MyIncarnation extends it.unibo.scafi.incarnations.BasicAbstractIncarnation
@@ -588,7 +580,7 @@ However, we are working on it.
 
 Take a look at the following paper for middleware- and deployment-level considerations:
 
-<div class="bibtex_display" bibtexkey="Viroli2016ubicomp"></div>
+<div data-cite="Viroli2016ubicomp"></div>
 
 
 
@@ -640,7 +632,7 @@ Please consult the [ScaFi API (ScalaDoc)](/doc/latest/api) for more aggregate pr
 
 Parts of the ScaFi library are described in the following papers:
 
-<div class="bibtex_display" bibtexkey="Casadei2016mass|casadei2018agere|casadei2018scp"></div>
+<div data-cite="Casadei2016mass|casadei2018agere|casadei2018scp"></div>
 
 TBD
 
@@ -664,7 +656,7 @@ TBD
 
 For an introduction to the **aggregate process** concept and its API, consider reading the following paper:
 
-<div class="bibtex_display" bibtexkey="casadei19processes"></div>
+<div data-cite="casadei19processes"></div>
 
 TBD
 

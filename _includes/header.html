@@ -1,49 +1,21 @@
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand title" href="{{ '/' | relative_url }}" style="display: flex; align-items: center; padding: 10px 15px;">
-            <img src="{{ '/imgs/scafi-symbol.svg' | relative_url }}" alt="ScaFi Logo" style="height: 32px; margin-right: 10px;" />
-            <span>{{ site.title }}</span>
-          </a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            {% comment %} <li {% if page.url == "/" %}class="active"{% endif %}><a href="{{ site.url }}">Home</a></li> {% endcomment %}
-            {% assign sorted_pages = site.pages | sort:"order" %}
-            {% for my_page in sorted_pages %}
-            {% if my_page.title %}
-            <li class="inline-block{% if page.url == my_page.url %} active{% endif %}">
-                <a href="{% if my_page.static_url %} {{my_page.static_url}} {% else %} {{ my_page.url | prepend: site.baseurl }} {% endif %}">{{ my_page.title }}</a>
-            </li>
-            {% endif %}
-            {% endfor %}
-          </ul>
-          {% comment %}
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
-          </ul>
-          {% endcomment %}
-        </div><!--/.nav-collapse -->
-      </div>
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="site-header">
+  <div class="container{% if page.wide %} wide{% endif %}">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <picture>
+        <source srcset="{{ '/imgs/scafi-wordmark-dark.svg' | relative_url }}" media="(prefers-color-scheme: dark)">
+        <img src="{{ '/imgs/scafi-wordmark.svg' | relative_url }}" alt="ScaFi" width="84" height="30">
+      </picture>
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        {% assign sorted_pages = site.pages | sort: "order" %}
+        {% for my_page in sorted_pages %}
+        {% if my_page.title %}
+        <li><a href="{{ my_page.static_url | default: my_page.url | relative_url }}"{% if page.url == my_page.url %} aria-current="page"{% endif %}>{{ my_page.title }}</a></li>
+        {% endif %}
+        {% endfor %}
+      </ul>
     </nav>
+  </div>
+</header>
