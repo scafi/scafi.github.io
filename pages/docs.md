@@ -5,12 +5,10 @@ permalink: /docs/
 excerpt: Documentation for ScaFi, a Scala-based aggregate programming toolkit. It describes the ScaFi domain-specific language (DSL), which implements a variant of the field calculus, as well as its API, runtime and support for the construction of aggregate systems.
 main: true
 order: 1
-custom_js:
-- https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment.min.js
-- /js/bibtex_js.js
+bib: true
+wide: true
+article_class: docs
 ---
-
-<bibtex src="{{ '/assets/biblio.bib' | relative_url }}"></bibtex>
 
 
 * Do not remove this line (it will not be displayed)
@@ -66,7 +64,7 @@ A code example of round execution in ScaFi is shown in <a href="#building-aggreg
 
 Aggregate computing is a **macro-programming** paradigm where a *single program* (called the **aggregate program**) *defines the overall behaviour of a network of devices or agents*.
 
-<div class="bibtex_display" bibtexkey="macroprogramming"></div>
+<div data-cite="macroprogramming"></div>
 
 The aggregate program does not explicitly refer to the execution model discussed in the previous section, i.e., it somewhat abstracts from it (though in some cases it may assume that the execution model has certain characteristics). Instead, it expresses *how input fields maps to output fields*:
  for instance, how a field of temperature sensor readings maps to a field of warnings;
@@ -582,7 +580,7 @@ However, we are working on it.
 
 Take a look at the following paper for middleware- and deployment-level considerations:
 
-<div class="bibtex_display" bibtexkey="Viroli2016ubicomp"></div>
+<div data-cite="Viroli2016ubicomp"></div>
 
 
 
@@ -634,7 +632,7 @@ Please consult the [ScaFi API (ScalaDoc)](/doc/latest/api) for more aggregate pr
 
 Parts of the ScaFi library are described in the following papers:
 
-<div class="bibtex_display" bibtexkey="Casadei2016mass|casadei2018agere|casadei2018scp"></div>
+<div data-cite="Casadei2016mass|casadei2018agere|casadei2018scp"></div>
 
 TBD
 
@@ -658,7 +656,7 @@ TBD
 
 For an introduction to the **aggregate process** concept and its API, consider reading the following paper:
 
-<div class="bibtex_display" bibtexkey="casadei19processes"></div>
+<div data-cite="casadei19processes"></div>
 
 TBD
 
