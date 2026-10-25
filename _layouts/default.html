@@ -1,24 +1,11 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
-
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
   {% include head.html %}
-
   <body>
-
     {% include header.html %}
-
-    {{ content }}
-
+    <main id="content" class="container{% if page.wide %} wide{% endif %}">
+      {{ content }}
+    </main>
     {% include footer.html %}
-
-    {% include script.html %}
-
-    {% if page.custom_js %}
-      {% for js_file in page.custom_js %}
-      <script src="{{ js_file | relative_url }}" type="text/javascript"></script>
-      {% endfor %}
-    {% endif %}
-
   </body>
-
 </html>

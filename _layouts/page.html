@@ -2,12 +2,6 @@
 layout: default
 ---
 
-<div id="main-container" class="container" role="main">
-
-  <article>
-
+<article{% if page.article_class %} class="{{ page.article_class }}"{% endif %}>
   {{ content }}
-
-  </article>
-
-</div> <!-- /container -->
+</article>

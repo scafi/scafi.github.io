@@ -1,16 +1,10 @@
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% seo %}
-
-    {% if page.custom_css %}
-      {% for stylesheet in page.custom_css %}
-      <link rel="stylesheet" href="{{ stylesheet }}" media="screen" type="text/css">
-      {% endfor %}
-    {% endif %}
-
-    <link rel="stylesheet" href="{{ "/assets/bootstrap.css" | relative_url }}">
-    <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
-    <link rel="stylesheet" href="{{ "/assets/my-highlight.css" | relative_url }}">
-    <link rel="icon" type="image/svg+xml" href="{{ "/imgs/scafi-symbol.svg" | relative_url }}">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% seo %}
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0d1418" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+  <link rel="icon" type="image/svg+xml" href="{{ '/imgs/scafi-symbol.svg' | relative_url }}">
+  {% if page.bib %}<script type="module" src="{{ '/js/papers.js' | relative_url }}"></script>{% endif %}
 </head>

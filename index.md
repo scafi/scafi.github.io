@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: page
 order: 0
 ---
 
@@ -10,11 +10,11 @@ order: 0
     It implements a variant of the Higher-Order Field Calculus (HOFC) operational semantics as a domain-specific language (DSL),
     and provides a platform and API for simulating and executing Aggregate Computing systems and applications.
   </p>
-  <p>
-    <a class="btn btn-primary btn-lg" href="{{ '/docs/' | relative_url }}">Get started</a>
-    <a class="btn btn-default btn-lg" href="{{ '/web/' | relative_url }}">Try it in the browser</a>
-    <a class="btn btn-default btn-lg" href="https://github.com/scafi/scafi">GitHub</a>
-  </p>
+  <div class="actions">
+    <a class="btn primary" href="{{ '/docs/' | relative_url }}">Get started</a>
+    <a class="btn" href="{{ '/web/' | relative_url }}">Try it in the browser</a>
+    <a class="btn" href="https://github.com/scafi/scafi">GitHub</a>
+  </div>
 </div>
 
 <iframe class="demo" src="/web/index.html?embed=true&example=Gradient&layout=sim-only&autoplay=true&controls=false&theme=light&bg=clean" title="A ScaFi gradient running live in ScaFi Web" loading="lazy"></iframe>

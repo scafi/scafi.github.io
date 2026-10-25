@@ -1,27 +1,21 @@
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand title" href="{{ '/' | relative_url }}">
-            <img src="{{ '/imgs/scafi-wordmark-dark.svg' | relative_url }}" alt="ScaFi">
-          </a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            {% assign sorted_pages = site.pages | sort: "order" %}
-            {% for my_page in sorted_pages %}
-            {% if my_page.title %}
-            <li{% if page.url == my_page.url %} class="active"{% endif %}>
-              <a href="{{ my_page.static_url | default: my_page.url | relative_url }}"{% if page.url == my_page.url %} aria-current="page"{% endif %}>{{ my_page.title }}</a>
-            </li>
-            {% endif %}
-            {% endfor %}
-          </ul>
-        </div>
-      </div>
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="site-header">
+  <div class="container{% if page.wide %} wide{% endif %}">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <picture>
+        <source srcset="{{ '/imgs/scafi-wordmark-dark.svg' | relative_url }}" media="(prefers-color-scheme: dark)">
+        <img src="{{ '/imgs/scafi-wordmark.svg' | relative_url }}" alt="ScaFi" width="84" height="30">
+      </picture>
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        {% assign sorted_pages = site.pages | sort: "order" %}
+        {% for my_page in sorted_pages %}
+        {% if my_page.title %}
+        <li><a href="{{ my_page.static_url | default: my_page.url | relative_url }}"{% if page.url == my_page.url %} aria-current="page"{% endif %}>{{ my_page.title }}</a></li>
+        {% endif %}
+        {% endfor %}
+      </ul>
     </nav>
+  </div>
+</header>
